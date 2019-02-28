@@ -14,11 +14,11 @@ public class DatabaseSupplier{
     	return true;
     }
     
-    public boolean removeSupplier(Supplier supplier){
+    public void removeSupplier(Supplier supplier){
     	return true;
     }
     
-    public Item getSupplier(){
+    public Supplier getSupplier(){
     	return supplier;
     }
 
