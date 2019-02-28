@@ -5,17 +5,24 @@ Mahdi Yusuf
 
 public class DatabaseItem{
     private String listItem[];
-    
+    private Item item;
+
     public DatabaseItem(){
-    
     }
     
-    public void getItemDatabase(){
+    public boolean addItem(Item item){
+    	return true;
     }
     
-    public void addItem(){
+    public boolean removeItem(Item item){
+    	return true;
     }
     
-    public void removeItem(){
+    public Item getItem(){
+    	return item;
+    }
+
+    public String[] getItemDatabase(){
+    	return listItem;
     }
 }

@@ -5,47 +5,71 @@ Mahdi Yusuf
 
 public class Item{
 
-    protected int id;
-    protected String name;
-    protected int stock;
-    protected int price;
-    protected String category;
+    private int id;
+    private String name;
+    private int stock;
+    private int price;
+    private String category;
+    private Supplier supplier;
 
-    public Item(){
+    public Item(int id, String name, int stock, int price, String category, Supplier supplier){
+        this.id=id;
+        this.name=name;
+        this.stock=stock;
+        this.price=price;
+        this.category=category;
+        this.supplier=supplier;
     }
     
     public int getId(){
-        return 0;
+        return id;
     }
     
     public String getName(){
-        return "";
+        return name;
     }
     
     public int getStock(){
-        return 0;
+        return stock;
     }
     
     public int getPrice(){
-        return 0;
+        return price;
     }
     
     public String getCategory(){
-        return "";
+        return category;
+    }
+
+    public Supplier getSupplier(){
+        return supplier;
     }
     
     public void setId(int id){
+        this.id=id;
     }
     
     public void setName(String name){
+        this.name=name;
     }
     
     public void setStock(int stock){
+        this.stock=stock;
     }
 
     public void setPrice(int price){
+        this.price=price;
     }
 
     public void setCategory(String category){
+        this.category=category;
+    }
+
+    public void setSupplier(Supplier supplier){
+        this.supplier=supplier;
+    }
+
+    public void printData(){
+        System.out.println(name);
     }
 }
