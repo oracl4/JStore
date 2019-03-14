@@ -48,6 +48,10 @@ public class Invoice{
     */
     private int totalPrice;
 
+    private int totalItem;
+
+    private InvoiceStatus status;
+
     /**
     * Method Invoice merupakan Constructor dari Invoice Class
     *
@@ -56,11 +60,12 @@ public class Invoice{
     * @param date           Tanggal dari objek invoice yang dibuat
     * @param totalPrice     Total Harga dari objek invoice yang dibuat
     */
-    public Invoice(int id, Item item, String date, int totalPrice){    
+    public Invoice(int id, Item item, String date, int totalPrice, InvoiceStatus status){    
         this.id=id;
         this.item=item;
         this.date=date;
         this.totalPrice=totalPrice;
+        this.status=status;
     }
     
     /**
@@ -94,7 +99,15 @@ public class Invoice{
     public int getTotalPrice(){
         return totalPrice;
     }
+
+    public int getTotalItem(){
+        return totalItem;
+    }
     
+    public InvoiceStatus getInvoiceStatus(){
+        return status;
+    }
+
     /**
     * Mutator Method untuk mengubah ID dari objek Invoice
     * @param id Nilai ID yang diinginkan
@@ -127,10 +140,23 @@ public class Invoice{
         this.totalPrice=totalPrice;
     }
 
+    public void setTotalItem(int totalItem){
+        this.totalItem=totalItem;
+    }
+
+    public void setInvoiceStatus(InvoiceStatus status){
+        this.status=status;
+    }
+
     /**
     * Sebuah Method untuk melakukan Print Data dari Object Invoice (totalPrice)
     */
     public void printData(){
-        System.out.println(totalPrice);
+    System.out.println("==========INVOICE=======");
+        System.out.println("ID :" + id);
+        System.out.println("Date :" + date);
+        System.out.println("Item yang terdapat :" + item.getName());
+        System.out.println("Total harga :" + totalPrice);
+        System.out.println("Status :" + status);
     }
 }

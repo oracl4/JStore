@@ -31,12 +31,12 @@ public class DatabaseItem{
     /**
     * List Array dari Item yang dibuat
     */
-    private String listItem[];
+    public String listItem[];
     
     /**
     * Item dari Object Database Item yang dibuat
     */
-    private Item item;
+    public static Item itemDB;
 
     /**
     * Method DatabaseItem merupakan Constructor dari DatabaseItem Class
@@ -51,8 +51,9 @@ public class DatabaseItem{
     * @param item Item yang ingin dimasukan kedalam database
     * @return nilai boolean apakah pemasukan item berhasil atau gagal
     */
-    public boolean addItem(Item item){
-    	return true;
+    public static boolean addItem(Item item){
+    	itemDB=item;
+        return true;
     }
     
     /**
@@ -70,7 +71,7 @@ public class DatabaseItem{
     * @return Item dari DatabaseItem Object
     */
     public Item getItem(){
-    	return item;
+    	return itemDB;
     }
 
     /**

@@ -21,24 +21,48 @@
 * </p>
 * 
 * 
-* @author	Mahdi Yusuf
-* @version 	1.0
-* @since 	2019/03/04
+* @author   Mahdi Yusuf
+* @version  1.0
+* @since    2019/03/04
 */
 public class JStore{
-	
-	/**
-	* Method main merupakan main method dari JStore Application
-	* @param args Unused
-	* @return Nothing
-	*/    
+    
+    /**
+    * Method main merupakan main method dari JStore Application
+    * @param args Unused
+    * @return Nothing
+    */    
     public static void main(String[] args){
+        Location location1 = new Location("DKI Jakarta", "Zona Merah", "Jakarta");
+        Supplier supplier1 = new Supplier(1, "Mahdi Yusuf", "it.mahdi.yusuf@gmail.com", "081310275390", location1);      
+        
+        location1.printData();
+        supplier1.printData();
+        
+        System.out.println("");
+        Transaction.orderNewItem(supplier1);
+        System.out.println("==============");
+        Transaction.sellItemPaid(DatabaseItem.itemDB);
+        System.out.println("");
+        
+        System.out.println("");
+        Transaction.orderSecondItem(supplier1);
+        System.out.println("==============");
+        Transaction.sellItemUnpaid(DatabaseItem.itemDB);
+        System.out.println("");
+        
+        System.out.println("");
+        Transaction.orderRefurbishedItem(supplier1);
+        System.out.println("==============");
+        Transaction.sellItemInstallment(DatabaseItem.itemDB);
+        System.out.println("");
+        
     }
     
     /**
-	* Method JStore merupakan Constructor dari JStore Class
-	* Method ini dapat berisi nilai default dari variabel dalam JStore Class
-	*/
+    * Method JStore merupakan Constructor dari JStore Class
+    * Method ini dapat berisi nilai default dari variabel dalam JStore Class
+    */
     public JStore(){
     }
 }

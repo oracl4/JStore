@@ -61,7 +61,7 @@ public class DatabaseSupplier{
 	* @param supplier Supplier yang ingin dihapus dari database
 	* @return nilai boolean apakah penghapusan supplier berhasil atau gagal
 	*/
-    public void removeSupplier(Supplier supplier){
+    public boolean removeSupplier(Supplier supplier){
     	return true;
     }
     
