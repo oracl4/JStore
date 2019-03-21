@@ -35,28 +35,14 @@ public class JStore{
     public static void main(String[] args){
         Location location1 = new Location("DKI Jakarta", "Zona Merah", "Jakarta");
         Supplier supplier1 = new Supplier(1, "Mahdi Yusuf", "it.mahdi.yusuf@gmail.com", "081310275390", location1);      
+        Item item1 = new Item(13, "Microcontroller", ItemStatus.New, 113, 1400, ItemCategory.Electronics, supplier1);
         
-        location1.printData();
-        supplier1.printData();
+        DatabaseItem.addItem(item1);
         
-        System.out.println("");
-        Transaction.orderNewItem(supplier1);
-        System.out.println("==============");
-        Transaction.sellItemPaid(DatabaseItem.itemDB);
-        System.out.println("");
-        
-        System.out.println("");
-        Transaction.orderSecondItem(supplier1);
-        System.out.println("==============");
-        Transaction.sellItemUnpaid(DatabaseItem.itemDB);
-        System.out.println("");
-        
-        System.out.println("");
-        Transaction.orderRefurbishedItem(supplier1);
-        System.out.println("==============");
-        Transaction.sellItemInstallment(DatabaseItem.itemDB);
-        System.out.println("");
-        
+        Transaction.orderNewItem(item1);
+        Transaction.sellItemPaid(item1);
+        Transaction.sellItemUnpaid(item1);
+        Transaction.sellItemInstallment(item1);
     }
     
     /**

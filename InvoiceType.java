@@ -4,16 +4,17 @@
  * @author (your name here)
  * @version (version number or date here)
  */
-public enum ItemStatus{
-    New("New"), Second("Second"), Refurbished("Refurbished"), Sold("Sold");
+public enum InvoiceType
+{
+    Buy("Buy"), Sell("Sell");
 
-    String status;
+    String type;
     
-    ItemStatus(String status){
-        this.status = status;
+    InvoiceType(String type){
+    	this.type = type;
     }
     
     public String toString(){
-        return status;
+    	return type;
     }
 }

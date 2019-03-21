@@ -5,21 +5,15 @@
  * @version (version number or date here)
  */
 public enum InvoiceStatus{
-    Paid {
-        public String toString() {
-            return "Paid";
-        }
+    Paid("Paid"), Unpaid("Unpaid"), Installment("Installment");
+
+    String status;
+    
+    InvoiceStatus(String status){
+        this.status = status;
     }
-    ,
-    Unpaid {
-        public String toString() {
-            return "Unpaid";
-        }
-    }
-    ,
-    Installment {
-        public String toString() {
-            return "Installment";
-        }
+    
+    public String toString(){
+        return status;
     }
 }

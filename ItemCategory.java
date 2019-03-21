@@ -5,21 +5,15 @@
  * @version (version number or date here)
  */
 public enum ItemCategory{
-    Electronics {
-        public String toString() {
-            return "Electronics";
-        }
+    Electronics("Electronics"), Furniture("Furniture"), Stationary("Stationary");
+
+    String category;
+    
+    ItemCategory(String category){
+        this.category = category;
     }
-    ,
-    Furniture {
-        public String toString() {
-            return "Furniture";
-        }
-    }
-    ,
-    Stationary {
-        public String toString() {
-            return "Stationary";
-        }
+    
+    public String toString(){
+        return category;
     }
 }
