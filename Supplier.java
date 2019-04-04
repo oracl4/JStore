@@ -26,6 +26,8 @@
 * @version  1.0
 * @since    2019/03/04
 */
+import java.util.*;
+
 public class Supplier{
 
     /**
@@ -161,5 +163,9 @@ public class Supplier{
         System.out.println("Email :" + email);
         System.out.println("No telpon :" + phoneNumber);
         System.out.println("Lokasi Supplier :" + location.getCity());
+    }
+    
+    public String toString(){
+        return "========SUPPLIER=========\nID: "+id+"nama: "+"\nnama: "+name+"\nemail: "+email+"\nnomor telepon: "+phoneNumber+"\nlokasi: "+location.getCity()+", "+location.getProvince();
     }
 }

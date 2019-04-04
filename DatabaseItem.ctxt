@@ -1,6 +1,5 @@
 #BlueJ class context
 comment0.target=DatabaseItem
-comment0.text=\r\n\ <h1>Item.java</h1>\r\n\ <p>\r\n\ Class\ ini\ merupakan\ bagian\ Database\ Item\ dari\ JStore\ Application\r\n\ Class\ ini\ representasi\ dari\ sebuah\ Database\ Item\ yang\ terdapat\ pada\ JStore\ Application\r\n\ </p>\r\n\ \r\n\ \r\n\ @author\ \ \ Mahdi\ Yusuf\r\n\ @version\ \ 1.0\r\n\ @since\ \ \ \ 2019/03/04\r\n
 comment1.params=
 comment1.target=DatabaseItem()
 comment1.text=\r\n\ Method\ DatabaseItem\ merupakan\ Constructor\ dari\ DatabaseItem\ Class\r\n\ Method\ ini\ dapat\ berisi\ nilai\ default\ dari\ variabel\ dalam\ DatabaseItem\ Class\r\n
@@ -14,6 +13,6 @@ comment4.params=
 comment4.target=Item\ getItem()
 comment4.text=\r\n\ Accessor\ Method\ untuk\ mengambil\ Item\ dari\ objek\ DatabaseItem\r\n\ @return\ Item\ dari\ DatabaseItem\ Object\r\n
 comment5.params=
-comment5.target=java.lang.String[]\ getItemDatabase()
+comment5.target=Item[]\ getItemDatabase()
 comment5.text=\r\n\ Accessor\ Method\ untuk\ mengambil\ List\ Array\ Item\ dari\ objek\ DatabaseItem\r\n\ @return\ List\ Array\ Item\ dari\ DatabaseItem\ Object\r\n
 numComments=6

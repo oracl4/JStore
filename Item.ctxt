@@ -1,6 +1,5 @@
 #BlueJ class context
 comment0.target=Item
-comment0.text=\r\n\ <h1>Item.java</h1>\r\n\ <p>\r\n\ Class\ ini\ merupakan\ bagian\ item\ dari\ JStore\ Application\r\n\ Class\ ini\ representasi\ dari\ sebuah\ item\ yang\ terdapat\ pada\ JStore\ Application\r\n\ </p>\r\n\ \r\n\ \r\n\ @author\ \ \ Mahdi\ Yusuf\r\n\ @version\ \ 1.0\r\n\ @since\ \ \ \ 2019/03/04\r\n
 comment1.params=id\ name\ status\ stock\ price\ category\ supplier
 comment1.target=Item(int,\ java.lang.String,\ ItemStatus,\ int,\ int,\ ItemCategory,\ Supplier)
 comment1.text=\r\n\ Method\ Item\ merupakan\ Constructor\ dari\ Item\ Class\r\n\r\n\ @param\ id\ \ \ \ \ \ \ \ \ ID\ dari\ objek\ barang\ yang\ dibuat\r\n\ @param\ name\ \ \ \ \ \ \ Nama\ dari\ objek\ barang\ yang\ dibuat\r\n\ @param\ stock\ \ \ \ \ \ Stock\ dari\ objek\ barang\ yang\ dibuat\r\n\ @param\ price\ \ \ \ \ \ Harga\ dari\ objek\ barang\ yang\ dibuat\r\n\ @param\ category\ \ \ Kategori\ dari\ objek\ barang\ yang\ dibuat\r\n\ @param\ Supplier\ \ \ Supplier\ dari\ objek\ barang\ yang\ dibuat\r\n
@@ -22,7 +21,7 @@ comment15.params=supplier
 comment15.target=void\ setSupplier(Supplier)
 comment15.text=\r\n\ Mutator\ Method\ untuk\ mengubah\ Supplier\ dari\ objek\ Item\r\n\ @param\ supplier\ Supplier\ yang\ diinginkan\r\n
 comment16.params=
-comment16.target=void\ printData()
+comment16.target=java.lang.String\ toString()
 comment16.text=\r\n\ Sebuah\ Method\ untuk\ melakukan\ Print\ Data\ dari\ Object\ Item\r\n
 comment2.params=
 comment2.target=int\ getId()

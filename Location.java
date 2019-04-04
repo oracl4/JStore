@@ -26,6 +26,8 @@
 * @version  1.0
 * @since    2019/03/04
 */
+import java.util.*;
+
 public class Location{
 
     /**
@@ -107,10 +109,7 @@ public class Location{
     /**
     * Sebuah Method untuk melakukan Print Data dari Object Location (province)
     */
-    public void printData(){
-    System.out.println("==========LOCATION=======");
-    System.out.println("Provinsi :" + province);
-    System.out.println("Kota :" + city);
-    System.out.println("Deksripsi :" + description);
+   public String toString(){
+       return "========LOCATION========\nprovinsi:"+province+"\nkota:"+city+"\ndeskripsi:"+description;
     }
 }

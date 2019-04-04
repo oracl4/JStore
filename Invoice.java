@@ -26,6 +26,8 @@
 * @version  1.0
 * @since    2019/03/04
 */
+import java.util.*;
+
 public abstract class Invoice{
     
     /**
@@ -41,18 +43,18 @@ public abstract class Invoice{
     /**
     * Tanggal dari Object Invoice yang dibuat
     */
-    private String date;
+    private Calendar date;
     
-    protected int totalPrice;
+    private int totalPrice;
 
     /**
     * Total Harga dari Object Invoice yang dibuat
     */
     private int totalItem;
 
-    private InvoiceStatus status;
+    //private InvoiceStatus status;
 
-    private InvoiceType type;
+    //private InvoiceType type;
     
     
     /**
@@ -63,12 +65,12 @@ public abstract class Invoice{
     * @param date           Tanggal dari objek invoice yang dibuat
     * @param totalPrice     Total Harga dari objek invoice yang dibuat
     */
-    public Invoice(int id, Item item, String date, int totalItem, int totalPrice){    
+    public Invoice(int id, Item item, int totalItem){    
         this.id=id;
         this.item=item;
-        this.date=date;
-        this.totalPrice=totalPrice;
-        this.status=status;
+        this.totalItem=totalItem;
+        setTotalPrice(totalItem*item.getPrice());
+        this.date = Calendar.getInstance();
     }
     
     /**
@@ -91,7 +93,7 @@ public abstract class Invoice{
     * Accessor Method untuk mengambil String Date dari objek Invoice
     * @return String Date dari Invoice Object
     */
-    public String getDate(){
+    public Calendar getDate(){
         return date;
     }
     
@@ -107,13 +109,9 @@ public abstract class Invoice{
         return totalItem;
     }
     
-    public InvoiceStatus getInvoiceStatus(){
-        return status;
-    }
+    public abstract InvoiceStatus getInvoiceStatus();
 
-    public InvoiceType getInvoiceType(){
-        return type;
-    }
+    public abstract InvoiceType getInvoiceType();
 
     /**
     * Mutator Method untuk mengubah ID dari objek Invoice
@@ -135,7 +133,7 @@ public abstract class Invoice{
     * Mutator Method untuk mengubah Date dari objek Invoice
     * @param date String Date yang diinginkan
     */
-    public void setDate(String date){
+    public void setDate(Calendar date){
         this.date=date;
     }
 
@@ -151,12 +149,12 @@ public abstract class Invoice{
         this.totalItem=totalItem;
     }
 
-    public void setInvoiceStatus(InvoiceStatus status){
-        this.status=status;
-    }
+    public abstract void setInvoiceStatus(InvoiceStatus status);
 
     /**
     * Sebuah Method untuk melakukan Print Data dari Object Invoice (totalPrice)
     */
-    public abstract void printData();
+    public abstract String toString();
+    
+    //public abstract void printData();
 }

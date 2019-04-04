@@ -26,6 +26,8 @@
 * @version  1.0
 * @since    2019/03/04
 */
+import java.util.*;
+
 public class Item{
 
     /**
@@ -187,13 +189,7 @@ public class Item{
     /**
     * Sebuah Method untuk melakukan Print Data dari Object Item
     */
-    public void printData(){
-        System.out.println("==========ITEM=======");
-        System.out.println("ID :" + id);
-        System.out.println("Name :"  + name );
-        System.out.println("Stok :" + stock);
-        System.out.println("Kategori :" + category);
-        System.out.println("Status :" + status);
-        System.out.println("Supplier :" + supplier.getName());
+   public String toString(){
+        return "======ITEM=======\nId: "+id+"\nName: "+name+"\nStock: "+stock+"\nCategory: "+category+"\nStatus: "+status+"\nSupplier: "+supplier.getName();
     }
 }

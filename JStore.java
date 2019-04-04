@@ -25,6 +25,8 @@
 * @version  1.0
 * @since    2019/03/04
 */
+import java.util.*;
+
 public class JStore{
     
     /**
@@ -40,9 +42,9 @@ public class JStore{
         DatabaseItem.addItem(item1);
         
         Transaction.orderNewItem(item1);
-        Transaction.sellItemPaid(item1);
-        Transaction.sellItemUnpaid(item1);
-        Transaction.sellItemInstallment(item1);
+        //Transaction.sellItemPaid(item1);
+        //Transaction.sellItemUnpaid(item1);
+        //Transaction.sellItemInstallment(item1);
     }
     
     /**

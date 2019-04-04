@@ -26,12 +26,14 @@
 * @version  1.0
 * @since    2019/03/04
 */
+import java.util.*;
+
 public class DatabaseItem{
 
     /**
     * List Array dari Item yang dibuat
     */
-    public String listItem[];
+    public Item listItem[];
     
     /**
     * Item dari Object Database Item yang dibuat
@@ -78,7 +80,7 @@ public class DatabaseItem{
     * Accessor Method untuk mengambil List Array Item dari objek DatabaseItem
     * @return List Array Item dari DatabaseItem Object
     */
-    public String[] getItemDatabase(){
+    public Item[] getItemDatabase(){
     	return listItem;
     }
 }

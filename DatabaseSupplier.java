@@ -26,12 +26,14 @@
 * @version  1.0
 * @since    2019/03/04
 */
+import java.util.*;
+
 public class DatabaseSupplier{
     
     /**
     * List Array dari Supplier yang dibuat
     */
-    private String listSupplier[];
+    private Supplier listSupplier[];
     
     /**
     * Supplier dari Object Database Supplier yang dibuat
@@ -77,7 +79,7 @@ public class DatabaseSupplier{
     * Accessor Method untuk mengambil List Array Supplier dari objek DatabaseSupplier
     * @return List Array Supplier dari DatabaseSupplier Object
     */
-    public String[] getListSupplier(){
+    public Supplier[] getListSupplier(){
     	return listSupplier;
     }
 }
