@@ -28,8 +28,8 @@
 */
 import java.util.*;
 
-public abstract class Invoice{
-    
+public abstract class Invoice
+{
     /**
     * ID dari Object Invoice yang dibuat
     */
@@ -38,7 +38,7 @@ public abstract class Invoice{
     /**
     * Item dari Object Invoice yang dibuat
     */
-    private Item item;
+    //private Item item;
     
     /**
     * Tanggal dari Object Invoice yang dibuat
@@ -46,11 +46,17 @@ public abstract class Invoice{
     private Calendar date;
     
     private int totalPrice;
+    
+    private boolean isActive;
+    
+    private Customer customer;
+    
+    private ArrayList<Integer> item = new ArrayList<Integer>();
 
     /**
     * Total Harga dari Object Invoice yang dibuat
     */
-    private int totalItem;
+    //private int totalItem;
 
     //private InvoiceStatus status;
 
@@ -65,19 +71,18 @@ public abstract class Invoice{
     * @param date           Tanggal dari objek invoice yang dibuat
     * @param totalPrice     Total Harga dari objek invoice yang dibuat
     */
-    public Invoice(int id, Item item, int totalItem){    
-        this.id=id;
+    public Invoice(ArrayList<Integer> item)
+    {
         this.item=item;
-        this.totalItem=totalItem;
-        setTotalPrice(totalItem*item.getPrice());
-        this.date = Calendar.getInstance();
+        this.id=DatabaseInvoice.getLastInvoiceID()+1;
     }
     
     /**
     * Accessor Method untuk mengambil nilai ID dari objek Invoice
     * @return Nilai ID dari Invoice Object
     */
-    public int getId(){
+    public int getId()
+    {
         return id;
     }
     
@@ -85,7 +90,8 @@ public abstract class Invoice{
     * Accessor Method untuk mengambil Item dari objek Invoice
     * @return Item dari Invoice Object
     */
-    public Item getItem(){
+    public ArrayList<Integer> getItem()
+    {
         return item;
     }
     
@@ -93,7 +99,8 @@ public abstract class Invoice{
     * Accessor Method untuk mengambil String Date dari objek Invoice
     * @return String Date dari Invoice Object
     */
-    public Calendar getDate(){
+    public Calendar getDate()
+    {
         return date;
     }
     
@@ -101,12 +108,19 @@ public abstract class Invoice{
     * Accessor Method untuk mengambil nilai TotalPrice dari objek Invoice
     * @return Nilai TotalPrice dari Invoice Object
     */
-    public int getTotalPrice(){
+    public int getTotalPrice()
+    {
         return totalPrice;
     }
 
-    public int getTotalItem(){
-        return totalItem;
+    public boolean getIsActive()
+    {
+        return isActive;
+    }
+    
+    public Customer getCustomer()
+    {
+        return customer;
     }
     
     public abstract InvoiceStatus getInvoiceStatus();
@@ -117,7 +131,8 @@ public abstract class Invoice{
     * Mutator Method untuk mengubah ID dari objek Invoice
     * @param id Nilai ID yang diinginkan
     */
-    public void setId(int id){
+    public void setId(int id)
+    {
         this.id=id;
     }
 
@@ -125,7 +140,8 @@ public abstract class Invoice{
     * Mutator Method untuk mengubah Item dari objek Invoice
     * @param item Item yang diinginkan
     */
-    public void setIdItem(Item item){
+    public void setItem(ArrayList<Integer> item)
+    {
         this.item=item;
     }
     
@@ -133,7 +149,8 @@ public abstract class Invoice{
     * Mutator Method untuk mengubah Date dari objek Invoice
     * @param date String Date yang diinginkan
     */
-    public void setDate(Calendar date){
+    public void setDate(Calendar date)
+    {
         this.date=date;
     }
 
@@ -141,12 +158,17 @@ public abstract class Invoice{
     * Mutator Method untuk mengubah ID dari objek Invoice
     * @param totalPrice Nilai TotalPrice yang diinginkan
     */
-    public void setTotalPrice(int totalPrice){
-        this.totalPrice=totalPrice;
+    public void setTotalPrice(int totalPrice)
+    {
+        for(Integer invoice : item)
+        {
+            totalPrice=totalPrice+DatabaseItem.getItemFromID(invoice).getPrice();
+        }
     }
 
-    public void setTotalItem(int totalItem){
-        this.totalItem=totalItem;
+    public void setIsActive(boolean isActive)
+    {
+        this.isActive=isActive;
     }
 
     public abstract void setInvoiceStatus(InvoiceStatus status);
@@ -155,6 +177,4 @@ public abstract class Invoice{
     * Sebuah Method untuk melakukan Print Data dari Object Invoice (totalPrice)
     */
     public abstract String toString();
-    
-    //public abstract void printData();
 }

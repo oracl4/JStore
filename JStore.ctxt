@@ -1,6 +1,5 @@
 #BlueJ class context
 comment0.target=JStore
-comment0.text=\r\n\ <h1>JStore.java</h1>\r\n\ <p>\r\n\ Class\ ini\ merupakan\ main\ class\ dari\ JStore\ Application\r\n\ </p>\r\n\ \r\n\ \r\n\ @author\ \ \ Mahdi\ Yusuf\r\n\ @version\ \ 1.0\r\n\ @since\ \ \ \ 2019/03/04\r\n
 comment1.params=args
 comment1.target=void\ main(java.lang.String[])
 comment1.text=\r\n\ Method\ main\ merupakan\ main\ method\ dari\ JStore\ Application\r\n\ @param\ args\ Unused\r\n\ @return\ Nothing\r\n

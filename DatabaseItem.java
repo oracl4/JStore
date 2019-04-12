@@ -1,44 +1,9 @@
-/*******************************************************************************
- * Copyright (c) 2019 Mahdi Yusuf. All rights reserved.
- *
- * Licensed under the GNU General Public License, Version 3 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *   https://www.gnu.org/licenses/gpl-3.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- ******************************************************************************/
-
-/**
-* <h1>Item.java</h1>
-* <p>
-* Class ini merupakan bagian Database Item dari JStore Application
-* Class ini representasi dari sebuah Database Item yang terdapat pada JStore Application
-* </p>
-* 
-* 
-* @author   Mahdi Yusuf
-* @version  1.0
-* @since    2019/03/04
-*/
 import java.util.*;
 
-public class DatabaseItem{
-
-    /**
-    * List Array dari Item yang dibuat
-    */
-    public Item listItem[];
-    
-    /**
-    * Item dari Object Database Item yang dibuat
-    */
-    public static Item itemDB;
+public class DatabaseItem
+{
+    private static ArrayList<Item> ITEM_DATABASE = new ArrayList<Item>();
+    private static int LAST_ITEM_ID = 0;
 
     /**
     * Method DatabaseItem merupakan Constructor dari DatabaseItem Class
@@ -47,40 +12,90 @@ public class DatabaseItem{
     public DatabaseItem(){
     }
     
-    /**
-    * Method ini merupakan method yang menambahkan Item baru
-    * Kedalam Database Item
-    * @param item Item yang ingin dimasukan kedalam database
-    * @return nilai boolean apakah pemasukan item berhasil atau gagal
-    */
+    public static ArrayList<Item> getItemDatabase(){
+        return ITEM_DATABASE;
+    }
+    
+    public static int getLastItemID(){
+        return LAST_ITEM_ID;
+    }
+    
     public static boolean addItem(Item item){
-    	itemDB=item;
-        return true;
+        boolean value = false;
+        for(Item itemPtr : ITEM_DATABASE)
+        {
+            if(item.getName() != itemPtr.getName() && item.getStatus() != itemPtr.getStatus() && item.getSupplier() != itemPtr.getSupplier())
+            {
+            ITEM_DATABASE.add(item); 
+            value=true;
+            }
+        }
+        return value;
     }
     
-    /**
-    * Method ini merupakan method yang menghapus Item
-    * Dari Database Item
-    * @param item Item yang ingin dihapus dari database
-    * @return nilai boolean apakah penghapusan item berhasil atau gagal
-    */
-    public boolean removeItem(Item item){
-    	return true;
-    }
-    
-    /**
-    * Accessor Method untuk mengambil Item dari objek DatabaseItem
-    * @return Item dari DatabaseItem Object
-    */
-    public Item getItem(){
-    	return itemDB;
+    public static Item getItemFromID(int id)
+    {
+        Item value = null;
+        for(Item itemPtr : ITEM_DATABASE)
+        {
+            if(itemPtr.getId() == id)
+            {
+                value = itemPtr;
+            }
+        }
+        return value;
     }
 
-    /**
-    * Accessor Method untuk mengambil List Array Item dari objek DatabaseItem
-    * @return List Array Item dari DatabaseItem Object
-    */
-    public Item[] getItemDatabase(){
-    	return listItem;
+    public static ArrayList<Item> getItemFromSupplier(Supplier supplier)
+    {
+        ArrayList<Item> value = null;
+        for(Item itemPtr : ITEM_DATABASE)
+        {
+            if(itemPtr.getSupplier() == supplier)
+            {
+                value.add(itemPtr);
+            }
+        }
+        return value;
+    }
+
+    public static ArrayList<Item> getItemFromCategory(Item category)
+    {
+        ArrayList<Item> value = null;
+        for(Item itemPtr : ITEM_DATABASE)
+        {
+            if(itemPtr.getCategory() == category.getCategory())
+            {
+                value.add(itemPtr);
+            }
+        }
+        return value;
+    }
+    
+    public static ArrayList<Item> getItemFromStatus(Item status)
+    {
+        ArrayList<Item> value = null;
+        for(Item itemPtr : ITEM_DATABASE)
+        {
+            if(itemPtr.getStatus() == status.getStatus())
+            {
+                value.add(itemPtr);
+            }
+        }
+        return value;
+    }
+
+    public static boolean removeItem(int id)
+    {
+        boolean value = false;
+        for(Item itemPtr : ITEM_DATABASE)
+        {      
+            if(itemPtr.getId() == id)
+            {
+                ITEM_DATABASE.remove(id);
+                value = true;
+            }  
+        }
+        return value;
     }
 }

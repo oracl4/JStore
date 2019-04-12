@@ -1,85 +1,64 @@
-/*******************************************************************************
- * Copyright (c) 2019 Mahdi Yusuf. All rights reserved.
- *
- * Licensed under the GNU General Public License, Version 3 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *   https://www.gnu.org/licenses/gpl-3.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- ******************************************************************************/
-
-/**
-* <h1>Item.java</h1>
-* <p>
-* Class ini merupakan bagian Database Supplier dari JStore Application
-* Class ini representasi dari sebuah Database Supplier yang terdapat pada JStore Application
-* </p>
-* 
-* 
-* @author   Mahdi Yusuf
-* @version  1.0
-* @since    2019/03/04
-*/
 import java.util.*;
 
-public class DatabaseSupplier{
+public class DatabaseSupplier
+{
+    private static ArrayList<Supplier> SUPPLIER_DATABASE = new ArrayList<Supplier>();
+    private static int LAST_SUPPLIER_ID = 0;
+   
+    public DatabaseSupplier()
+    {
+    }
     
-    /**
-    * List Array dari Supplier yang dibuat
-    */
-    private Supplier listSupplier[];
+    public static ArrayList<Supplier> getSupplierDatabase()
+    {
+        return SUPPLIER_DATABASE;
+    }
     
-    /**
-    * Supplier dari Object Database Supplier yang dibuat
-    */
-    private Supplier supplier;
+    public static int getLastSupplierID()
+    {
+        return LAST_SUPPLIER_ID;
+    }
+    
+    public static boolean addSupplier(Supplier supplier)
+    {
+        boolean value = false;
+        for(Supplier supplierPtr : SUPPLIER_DATABASE)
+        {
+            if(supplier.getName() != supplierPtr.getName() && supplier.getEmail() != supplierPtr.getEmail() && supplier.getPhoneNumber() != supplierPtr.getPhoneNumber())
+            {
+                SUPPLIER_DATABASE.add(supplier);
+                LAST_SUPPLIER_ID = supplier.getId();
+                value = true;
+            }
+        }
+        return value;
+    }
+    
+    public static Supplier getSupplier(int id)
+    {
+        Supplier value = null;
+        for(Supplier supplierPtr : SUPPLIER_DATABASE)
+        {
+            if(supplierPtr.getId() == id)
+            {
+                value = supplierPtr;
+            }
+        }
+        return value;
+    }
 
-    /**
-	* Method DatabaseSupplier merupakan Constructor dari DatabaseSupplier Class
-	* Method ini dapat berisi nilai default dari variabel dalam DatabaseSupplier Class
-	*/
-    public DatabaseSupplier(){
-    }
-    
-    /**
-	* Method ini merupakan method yang menambahkan Supplier baru
-	* Kedalam Database Supplier
-	* @param supplier Supplier yang ingin dimasukan kedalam database
-	* @return nilai boolean apakah pemasukan supplier berhasil atau gagal
-	*/
-    public boolean addSupplier(Supplier supplier){
-    	return true;
-    }
-    
-    /**
-	* Method ini merupakan method yang menghapus Supplier
-	* Dari Database Supplier
-	* @param supplier Supplier yang ingin dihapus dari database
-	* @return nilai boolean apakah penghapusan supplier berhasil atau gagal
-	*/
-    public boolean removeSupplier(Supplier supplier){
-    	return true;
-    }
-    
-    /**
-    * Accessor Method untuk mengambil Supplier dari objek DatabaseSupplier
-    * @return Supplier dari DatabaseSupplier Object
-    */
-    public Supplier getSupplier(){
-    	return supplier;
-    }
-
-    /**
-    * Accessor Method untuk mengambil List Array Supplier dari objek DatabaseSupplier
-    * @return List Array Supplier dari DatabaseSupplier Object
-    */
-    public Supplier[] getListSupplier(){
-    	return listSupplier;
+    public static boolean removeSupplier(int id)
+    {
+        boolean value = false;
+        for(Supplier supplierPtr : SUPPLIER_DATABASE)
+        {
+            if(supplierPtr.getId() == id)
+            {
+                DatabaseItem.getItemDatabase().removeAll(DatabaseItem.getItemFromSupplier(supplierPtr));
+                SUPPLIER_DATABASE.remove(id);
+                value = true;
+            }
+        }
+        return value;
     }
 }

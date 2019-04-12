@@ -28,74 +28,82 @@
 */
 import java.util.*;
 
-public class Transaction{
+public class Transaction
+{
+    public static void orderNewItem(Item item)
+    {
+        ArrayList<Integer> itemID = new ArrayList<Integer>();
+        itemID.add(item.getId());
+        Invoice invoice = new Buy_Paid(itemID);
+        DatabaseInvoice.addInvoice(invoice);
+    }
+
+    public static void orderSecondItem(Item item)
+    {
+        ArrayList<Integer> itemID = new ArrayList<Integer>();
+        itemID.add(item.getId());
+        Invoice invoice = new Buy_Paid(itemID);
+        DatabaseInvoice.addInvoice(invoice);
+    }
+
+    public static void orderRefurbishedItem(Item item)
+    {
+        ArrayList<Integer> itemID = new ArrayList<Integer>();
+        itemID.add(item.getId());
+        Invoice invoice = new Buy_Paid(itemID);
+        DatabaseInvoice.addInvoice(invoice);
+    }
+
+    public static void sellItemPaid(Item item, Customer customer)
+    {
+        ArrayList<Integer> itemID = new ArrayList<Integer>();
+        itemID.add(item.getId());
+        Invoice invoice = new Sell_Paid(itemID,customer);
+        DatabaseInvoice.addInvoice(invoice);
+    }
+
+    public static void sellItemUnpaid(Item item, Customer customer)
+    {
+        ArrayList<Integer> itemID = new ArrayList<Integer>();
+        itemID.add(item.getId());
+        Invoice invoice = new Sell_Unpaid(itemID,customer);
+        DatabaseInvoice.addInvoice(invoice);
+    }
+
+    public static void sellItemInstallment(Item item, Customer customer, int installmentPeriod)
+    {
+        ArrayList<Integer> itemID = new ArrayList<Integer>();
+        itemID.add(item.getId());
+        Invoice invoice = new Sell_Installment(itemID,installmentPeriod,customer);
+        DatabaseInvoice.addInvoice(invoice);
+    }
     
-    public static void orderNewItem(Item item){
-        /*Invoice invoiceNewItem = new Buy_Paid(11, item, "13/12/2019", 13, item.getPrice());
-        
-        if (invoiceNewItem instanceof Sell_Paid)
+    public boolean finishTransaction(Invoice invoice)
+    {
+        boolean value = false;
+        for (Invoice invoiceDB : DatabaseInvoice.getInvoiceDatabase())
         {
-            System.out.println("Benar, Invoice Type adalah Sell_Paid");
+            if (invoiceDB.getId() == invoice.getId())
+            {
+                invoice.setIsActive(false);
+                System.out.print(invoice.getIsActive());
+                value = true;
+            }
         }
-        else
-        {
-            System.out.println("Salah, Invoice Type adalah Sell_Paid");
-        }
-        System.out.println("=========");
-        invoiceNewItem.printData();
-        item.printData();*/
+        return value;
     }
-
-    public static void orderSecondItem(Item item){
-        /*Invoice invoiceSecondItem = new Buy_Paid(12, item, "13/12/2019", 14, item.getPrice());
-        
-        if (invoiceSecondItem instanceof Sell_Paid)
+    
+    public boolean cancelTransaction(Invoice invoice)
+    {
+        boolean value = false;
+        for (Invoice invoiceDB : DatabaseInvoice.getInvoiceDatabase())
         {
-            System.out.println("Benar, Invoice Type adalah Sell_Paid");
+            if (invoiceDB.getId() == invoice.getId())
+            {
+                DatabaseInvoice.removeInvoice(invoice.getId());
+                value = true;
+            }
         }
-        else
-        {
-            System.out.println("Salah, Invoice Type adalah Sell_Paid");
-        }
-        System.out.println("=========");
-        invoiceSecondItem.printData();
-        item.printData();*/
-    }
-
-    public static void orderRefurbishedItem(Item item){
-        /*Invoice invoiceRefurbishedItem = new Buy_Paid(13, item, "13/12/2019", 15, item.getPrice());
-        
-        if (invoiceRefurbishedItem instanceof Sell_Paid)
-        {
-            System.out.println("Benar, Invoice Type adalah Sell_Paid");
-        }
-        else
-        {
-            System.out.println("Salah, Invoice Type adalah Sell_Paid");
-        }
-        System.out.println("=========");
-        invoiceRefurbishedItem.printData(); 
-        item.printData();*/
-    }
-
-    public static void sellItemPaid(Item item, Customer customer){
-        /*Invoice invoiceSellItemPaid = new Sell_Paid(14, item, "13/12/2019", 16, item.getPrice());
-        System.out.println("=========");
-        invoiceSellItemPaid.printData();
-        item.printData();*/
-    }
-
-    public static void sellItemUnpaid(Item item, Customer customer){
-        /*Invoice invoiceSellItemUnpaid = new Sell_Unpaid(14, item, "13/12/2019", 16, item.getPrice(), "14/12/2019");
-        System.out.println("=========");
-        invoiceSellItemUnpaid.printData();
-        item.printData();*/
-    }
-
-    public static void sellItemInstallment(Item item, Customer customer, int installmentPeriod){
-        /*Invoice invoiceSellItemInstallment = new Sell_Installment(14, item, "13/12/2019", 16, item.getPrice(), 13);
-        System.out.println("=========");
-        invoiceSellItemInstallment.printData();
-        item.printData();*/
+        return value;
     }
 }

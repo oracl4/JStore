@@ -5,11 +5,14 @@
  * @version (version number or date here)
  */
 public enum ItemStatus{
-    New("New"), Second("Second"), Refurbished("Refurbished"), Sold("Sold");
+    New("New"),
+    Second("Second"),
+    Refurbished("Refurbished"),
+    Sold("Sold");
 
     String status;
     
-    ItemStatus(String status){
+    private ItemStatus(String status){
         this.status = status;
     }
     

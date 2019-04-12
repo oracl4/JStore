@@ -1,42 +1,66 @@
+import java.util.*;
+
 public class DatabaseInvoice
 {
-    // variabel yang digunakan dalam class
-    private Invoice[] listInvoice; // inisialisasi variabel
-    public static Invoice invoice;
+    private static ArrayList<Invoice> INVOICE_DATABASE = new ArrayList<Invoice>();
+    private static int LAST_INVOICE_ID = 0;
     
-    /**
-     * Method of class DatabaseInvoice
-     * @return true
-     */
-    public static boolean addInvoice(Invoice invoice)
+    public static ArrayList<Invoice> getInvoiceDatabase()
     {
-        // return dari accessor 
-        return true;
+        return INVOICE_DATABASE;
+
     }
 
-    public static boolean removeInvoice(Invoice invoice)
+    public static int getLastInvoiceID()
     {
-        // return dari accessor 
+        return LAST_INVOICE_ID;
+    }
+
+    public static boolean addInvoice(Invoice invoice)
+    {
+        INVOICE_DATABASE.add(invoice);
+        LAST_INVOICE_ID = invoice.getId();
         return true;
     }
     
-    
-    /**
-     * Method of class DatabaseInvoice
-     * @return supplier
-     */
-    public Invoice getInvoice()
+    public static Invoice getInvoice(int id)
     {
-        // return dari accessor 
-        return invoice;
+        Invoice value = null;
+        for(Invoice invoicePtr : INVOICE_DATABASE)
+        {
+            if(invoicePtr.getId() == id)
+            {
+                value = invoicePtr;
+            }
+        }
+        return value;
     }
-    
-    /**
-     * Method of class DatabaseInvoice
-     * @return listSupplier
-     */
-    public Invoice[] getListInvoice(){
-        // return dari accessor 
-        return listInvoice;
+
+    public static Invoice getActiveOrder(Customer customer)
+    {
+        Invoice value = null;
+        for(Invoice invoicePtr : INVOICE_DATABASE)
+        {
+            if((invoicePtr.getInvoiceStatus() == InvoiceStatus.Installment || invoicePtr.getInvoiceStatus() == InvoiceStatus.Paid) && invoicePtr.getIsActive() == true)
+            {
+                value = invoicePtr;
+            }  
+        }
+        return value;
+    }
+  
+    public static boolean removeInvoice(int id)
+    {
+        boolean value = false;
+        for(Invoice invoicePtr : INVOICE_DATABASE)
+        {
+            if(invoicePtr.getId() == id && invoicePtr.getIsActive() == true)
+            {
+                invoicePtr.setIsActive(false);
+                INVOICE_DATABASE.remove(id);
+                value = true;
+            }
+        }
+        return value;
     }
 }

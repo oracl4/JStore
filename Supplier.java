@@ -65,8 +65,9 @@ public class Supplier{
     * @param phoneNumber    Nomor Telepon dari objek supplier yang dibuat
     * @param location       Lokasi dari objek supplier yang dibuat
     */
-    public Supplier(int id, String name, String email, String phoneNumber, Location location){
-        this.id=id;
+    public Supplier(String name, String email, String phoneNumber, Location location)
+    {
+        id=DatabaseSupplier.getLastSupplierID()+1;
         this.name=name;
         this.email=email;
         this.phoneNumber=phoneNumber;
@@ -156,14 +157,14 @@ public class Supplier{
     /**
     * Sebuah Method untuk melakukan Print Data dari Object Invoice (name)
     */
-    public void printData(){
+    /*public void printData(){
         System.out.println("==========SUPPLIER=======");
         System.out.println("ID :" + id);
         System.out.println("Name :" + name);
         System.out.println("Email :" + email);
         System.out.println("No telpon :" + phoneNumber);
         System.out.println("Lokasi Supplier :" + location.getCity());
-    }
+    }*/
     
     public String toString(){
         return "========SUPPLIER=========\nID: "+id+"nama: "+"\nnama: "+name+"\nemail: "+email+"\nnomor telepon: "+phoneNumber+"\nlokasi: "+location.getCity()+", "+location.getProvince();

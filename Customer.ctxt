@@ -1,7 +1,7 @@
 #BlueJ class context
 comment0.target=Customer
-comment1.params=name\ email\ username\ password\ id\ birthDate
-comment1.target=Customer(java.lang.String,\ java.lang.String,\ java.lang.String,\ java.lang.String,\ int,\ java.util.Calendar)
+comment1.params=name\ email\ username\ password\ birthDate
+comment1.target=Customer(java.lang.String,\ java.lang.String,\ java.lang.String,\ java.lang.String,\ java.util.Calendar)
 comment1.text=\r\n\ Constructor\ for\ objects\ of\ class\ Customer\r\n
 comment10.params=email
 comment10.target=void\ setEmail(java.lang.String)
@@ -17,8 +17,8 @@ comment15.params=year\ month\ dayOfMonth
 comment15.target=void\ setBirthDate(int,\ int,\ int)
 comment16.params=
 comment16.target=java.lang.String\ toString()
-comment2.params=name\ email\ username\ password\ id\ year\ month\ dayOfMonth
-comment2.target=Customer(java.lang.String,\ java.lang.String,\ java.lang.String,\ java.lang.String,\ int,\ int,\ int,\ int)
+comment2.params=name\ email\ username\ password\ year\ month\ dayOfMonth
+comment2.target=Customer(java.lang.String,\ java.lang.String,\ java.lang.String,\ java.lang.String,\ int,\ int,\ int)
 comment3.params=
 comment3.target=java.lang.String\ getName()
 comment3.text=\r\n\ An\ example\ of\ a\ method\ -\ replace\ this\ comment\ with\ your\ own\r\n\r\n\ @param\ \ y\ \ a\ sample\ parameter\ for\ a\ method\r\n\ @return\ \ \ \ the\ sum\ of\ x\ and\ y\r\n

@@ -35,16 +35,32 @@ public class JStore{
     * @return Nothing
     */    
     public static void main(String[] args){
-        Location location1 = new Location("DKI Jakarta", "Zona Merah", "Jakarta");
-        Supplier supplier1 = new Supplier(1, "Mahdi Yusuf", "it.mahdi.yusuf@gmail.com", "081310275390", location1);      
-        Item item1 = new Item(13, "Microcontroller", ItemStatus.New, 113, 1400, ItemCategory.Electronics, supplier1);
+        //Testing
+        Customer customer1 = new Customer("Mahdi", "it.mahdi.yusuf@gmail.com", "Oracl4", "Password", 2019, 4, 4);
+        Customer customer2 = new Customer("Gilang", "it.gilang.yudharaka@gmail.com", "Gogol", "Password", 2019, 4, 4);
+
+        DatabaseCustomer CustomerDB = new DatabaseCustomer();
         
-        DatabaseItem.addItem(item1);
+        int temp;
+        boolean stat;
         
-        Transaction.orderNewItem(item1);
-        //Transaction.sellItemPaid(item1);
-        //Transaction.sellItemUnpaid(item1);
-        //Transaction.sellItemInstallment(item1);
+        CustomerDB.addCustomer(customer1);
+        //System.out.println(customer1.toString());
+
+        stat = CustomerDB.addCustomer(customer2);
+        stat = CustomerDB.removeCustomer(1);
+        if(stat=true)
+        {
+            System.out.println("True");
+        }
+        else
+        {
+            System.out.println("False");
+        }
+        
+        temp = CustomerDB.getLastCustomerID();
+        //System.out.println(customer2.toString());
+        
     }
     
     /**
