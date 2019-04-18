@@ -42,15 +42,15 @@ public class JStore{
             DatabaseSupplier.addSupplier(new Supplier("Mahdi", "it.mahdi.yusuf@gmail.com", "081310275390", lokasi1));
             DatabaseSupplier.addSupplier(new Supplier("Mahdi", "it.mahdi.yusuf@gmail.com", "081310275390", lokasi1));
         } catch (SupplierAlreadyExistsException e) {
-            e.getExMessage();
+            System.out.println(e.getExMessage());
         }
 
-        /*Customer
+        //Customer
         try {
             DatabaseCustomer.addCustomer(new Customer("Customer Mahdi", "custom1@gmail.com", "Oracl4", "4ltius1", 2019, 4, 18));
             DatabaseCustomer.addCustomer(new Customer("Customer Mahdi", "custom1@gmail.com", "Oracl4", "4ltius1", 2019, 4, 18));
         } catch (CustomerAlreadyExistsException e) {
-            e.printStackTrace();
+            System.out.println(e.getExMessage());
         }
 
         //Item
@@ -58,8 +58,9 @@ public class JStore{
             DatabaseItem.addItem(new Item("Mikon 8051", 1, ItemCategory.Electronics, ItemStatus.New, DatabaseSupplier.getSupplier(1)));
             DatabaseItem.addItem(new Item("Mikon 8051", 1, ItemCategory.Electronics, ItemStatus.New, DatabaseSupplier.getSupplier(1)));
         } catch (ItemAlreadyExistsException e) {
-            e.getExMessage();
+            System.out.println(e.getExMessage());
         }
+
 
         ArrayList<Integer> itemArray = new ArrayList<>();
         itemArray.add(1);
@@ -67,11 +68,48 @@ public class JStore{
         itemArray.add(3);
 
         try {
-            DatabaseInvoice.addInvoice(new Sell_Installment(itemArray, 13, DatabaseCustomer.getCustomer(3)));
-            DatabaseInvoice.addInvoice(new Sell_Installment(itemArray, 13, DatabaseCustomer.getCustomer(3)));
+            DatabaseInvoice.addInvoice(new Sell_Installment(itemArray, 13, DatabaseCustomer.getCustomer(1)));
+            DatabaseInvoice.addInvoice(new Sell_Installment(itemArray, 13, DatabaseCustomer.getCustomer(1)));
         } catch (InvoiceAlreadyExistsException e) {
-            e.getExMessage();
-        }*/
+            System.out.println(e.getExMessage());
+        }
+
+        try {
+            DatabaseCustomer.removeCustomer(13);
+        } catch (CustomerNotFoundException e) {
+            System.out.println(e.getExMessage());
+        }
+
+        try {
+            DatabaseInvoice.removeInvoice(13);
+        } catch (InvoiceNotFoundException e) {
+            System.out.println(e.getExMessage());
+        }
+
+        try {
+            DatabaseItem.removeItem(13);
+        } catch (ItemNotFoundException e) {
+            System.out.println(e.getExMessage());
+        }
+
+        try {
+            DatabaseSupplier.removeSupplier(13);
+        } catch (SupplierNotFoundException e) {
+            System.out.println(e.getExMessage());
+        }
+
+        try {
+            DatabaseInvoice.addInvoice(new Buy_Paid(itemArray));
+            System.out.println(DatabaseInvoice.getInvoice(2));
+        } catch (InvoiceAlreadyExistsException e) {
+            System.out.println(e.getExMessage());
+        }
+
+        try {
+            DatabaseInvoice.getActiveOrder(DatabaseCustomer.getCustomer(2));
+        } catch (CustomerDoesntHaveActiveException e) {
+            System.out.println(e.getExMessage());
+        }
     }
     /**
     * Method JStore merupakan Constructor dari JStore Class
