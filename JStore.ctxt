@@ -1,9 +1,0 @@
-#BlueJ class context
-comment0.target=JStore
-comment1.params=args
-comment1.target=void\ main(java.lang.String[])
-comment1.text=\r\n\ Method\ main\ merupakan\ main\ method\ dari\ JStore\ Application\r\n\ @param\ args\ Unused\r\n\ @return\ Nothing\r\n
-comment2.params=
-comment2.target=JStore()
-comment2.text=\r\n\ Method\ JStore\ merupakan\ Constructor\ dari\ JStore\ Class\r\n\ Method\ ini\ dapat\ berisi\ nilai\ default\ dari\ variabel\ dalam\ JStore\ Class\r\n
-numComments=3
