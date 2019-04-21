@@ -3,6 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/JStore.iml" filepath="$PROJECT_DIR$/JStore.iml" />
+      <module fileurl="file://$PROJECT_DIR$/RunForYourLife/RunForYourLife.iml" filepath="$PROJECT_DIR$/RunForYourLife/RunForYourLife.iml" />
     </modules>
   </component>
 </project>
