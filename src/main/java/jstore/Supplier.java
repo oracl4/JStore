@@ -1,0 +1,82 @@
+/**
+ * <h1>Supplier.java</h1>
+ * <p>
+ * Class Description
+ * Class Description
+ * </p>
+ *
+ *
+ * @author   Mahdi Yusuf
+ * @version  7.0
+ * @since    2019/24/04
+ */
+package jstore;
+import java.util.*;
+
+public class Supplier{
+
+    private int id;
+    private String name;
+    private String email;
+    private String phoneNumber;
+    private Location location;
+
+    public Supplier(String name, String email, String phoneNumber, Location location)
+    {
+        this.id=DatabaseSupplier.getLastSupplierID()+1;
+        this.name=name;
+        this.email=email;
+        this.phoneNumber=phoneNumber;
+        this.location=location;
+    }
+    
+    public int getId(){
+        return id;
+    }
+    
+    public String getName(){
+        return name;
+    }
+    
+    public String getEmail(){
+        return email;
+    }
+    
+    public String getPhoneNumber(){
+        return phoneNumber;
+    }
+    
+    public Location getLocation(){
+        return location;
+    }
+    
+    public void setId(int id){
+        this.id=id;
+    }
+    
+    public void setName(String name){
+        this.name=name;
+    }
+
+    public void setEmail(String email){
+        this.email=email;
+    }
+
+    public void setPhoneNumber(String phoneNumber){
+        this.phoneNumber=phoneNumber;
+    }
+
+    public void setLocation(Location location){
+        this.location=location;
+    }
+
+    public String toString()
+    {
+        return "= Location ===============================" +
+                "\nName      : " + name +
+                "\nEmail     : " + email +
+                "\nTelephone : " + phoneNumber +
+                "\nLocation  : " + location.getCity() + ", " + location.getProvince() +
+                "\n==========================================";
+    }
+}
