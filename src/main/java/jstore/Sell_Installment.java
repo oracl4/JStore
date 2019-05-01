@@ -21,14 +21,13 @@ public class Sell_Installment extends Invoice
     private Customer customer;
     private int installmentPeriod;
     private int installmentPrice;
-    private boolean isActive;
 
     public Sell_Installment (ArrayList<Integer> item, int installmentPeriod, Customer customer)
     {
         super(item);
         this.installmentPeriod = installmentPeriod;
         this.customer = customer;
-        isActive = true;
+        super.setIsActive(true);
         this.setTotalPrice();
     }
 
@@ -93,7 +92,7 @@ public class Sell_Installment extends Invoice
         SimpleDateFormat sdf = new SimpleDateFormat("dd MMMM yyyy");
 
         String tempStatus;
-        if(isActive){
+        if(super.getIsActive()){
             tempStatus = "Invoice is Active";
         }
         else{

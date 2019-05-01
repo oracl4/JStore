@@ -19,14 +19,13 @@ public class Sell_Paid extends Invoice
    private static final InvoiceType INVOICE_TYPE = InvoiceType.Sell;
    private static final InvoiceStatus INVOICE_STATUS = InvoiceStatus.Paid;
    private Customer customer;
-   private boolean isActive;
 
    public Sell_Paid (ArrayList<Integer> item, Customer customer)
    {
        super(item);
        this.setTotalPrice();
        this.customer=customer;
-       isActive = false;
+       super.setIsActive(false);
        this.setTotalPrice();
    }
 
@@ -69,7 +68,7 @@ public class Sell_Paid extends Invoice
         SimpleDateFormat sdf = new SimpleDateFormat("dd MMMM yyyy");
 
         String tempStatus;
-        if(isActive){
+        if(super.getIsActive()){
             tempStatus = "Invoice is Active";
         }
         else{

@@ -20,7 +20,6 @@ public class Sell_Unpaid extends Invoice
     private static final InvoiceStatus INVOICE_STATUS = InvoiceStatus.Unpaid;
     private Customer customer;
     private Calendar dueDate;
-    private boolean isActive;
 
     public Sell_Unpaid (ArrayList<Integer> item, Customer customer)
     {
@@ -28,7 +27,7 @@ public class Sell_Unpaid extends Invoice
         this.customer = customer;
         this.dueDate=(Calendar)getDate().clone();
         dueDate.add(Calendar.DATE, +14);
-        isActive = true;
+        super.setIsActive(true);
         this.setTotalPrice();
     }
 
@@ -79,7 +78,7 @@ public class Sell_Unpaid extends Invoice
         SimpleDateFormat sdf = new SimpleDateFormat("dd MMMM yyyy");
 
         String tempStatus;
-        if(isActive){
+        if(super.getIsActive()){
             tempStatus = "Invoice is Active";
         }
         else{

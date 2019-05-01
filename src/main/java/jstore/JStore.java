@@ -41,6 +41,34 @@ public class JStore{
             e.getExMessage();
         }
 
+        /*try {
+            DatabaseCustomer.addCustomer(new Customer("Mahdi","it.mahdi.yusuf@gmail.com","oracl4","4ltius", 1998, 07, 05));
+        } catch (CustomerAlreadyExistsException e) {
+            e.getExMessage();
+        }
+
+        ArrayList<Integer> arrayListItem = new ArrayList<Integer>();
+
+        arrayListItem.add(1);
+        arrayListItem.add(2);
+
+        try {
+            DatabaseInvoice.addInvoice(new Sell_Installment(arrayListItem, 13, DatabaseCustomer.getCustomer(1)));
+        } catch (InvoiceAlreadyExistsException e) {
+            e.getExMessage();
+        }
+
+        try {
+            for (Invoice invoicePtr : DatabaseInvoice.getActiveOrder(DatabaseCustomer.getCustomer(1)))
+            {
+                System.out.println(invoicePtr);
+            }
+        } catch (CustomerDoesntHaveActiveException e) {
+            e.getExMessage();
+        }
+
+        System.out.println(DatabaseInvoice.getInvoice(1));*/
+
         SpringApplication.run(JStore.class, args);
     }
 
