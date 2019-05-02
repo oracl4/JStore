@@ -24,7 +24,7 @@ public class Item
 
     public Item(String name, int price, ItemCategory category, ItemStatus status, Supplier supplier)
     {
-        id=DatabaseItem.getLastItemID()+1;
+        this.id=DatabaseItem.getLastItemID()+1;
         this.name=name;
         this.price=price;
         this.category=category;
