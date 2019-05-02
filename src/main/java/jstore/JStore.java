@@ -11,7 +11,6 @@
  * @since    2019/24/04
  */
 package jstore;
-import java.util.*;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -39,7 +38,7 @@ public class JStore{
         }
 
         try {
-            DatabaseCustomer.addCustomer(new Customer("Mahdi","mahdi@gmail.com","oracl4","4ltius", 1998, 07, 05));
+            DatabaseCustomer.addCustomer(new Customer("Mahdi","1","oracl4","4", 1998, 07, 05));
         } catch (CustomerAlreadyExistsException e) {
             e.getExMessage();
         }
