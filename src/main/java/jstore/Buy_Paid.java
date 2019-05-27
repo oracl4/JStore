@@ -24,8 +24,8 @@ public class Buy_Paid extends Invoice
     public Buy_Paid(ArrayList<Integer> item)
     {
         super(item);
-        super.setIsActive(false);
         this.setTotalPrice();
+        super.setIsActive(false);
     }
 
     public InvoiceStatus getInvoiceStatus()

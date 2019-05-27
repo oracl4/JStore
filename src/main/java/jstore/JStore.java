@@ -15,6 +15,8 @@ package jstore;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
+import java.util.ArrayList;
+
 @SpringBootApplication
 public class JStore{
 
@@ -42,7 +44,7 @@ public class JStore{
         } catch (CustomerAlreadyExistsException e) {
             e.getExMessage();
         }
-        /*
+
         ArrayList<Integer> arrayListItem = new ArrayList<Integer>();
 
         arrayListItem.add(1);
@@ -63,7 +65,7 @@ public class JStore{
             e.getExMessage();
         }
 
-        System.out.println(DatabaseInvoice.getInvoice(1));*/
+        System.out.println(DatabaseInvoice.getInvoice(1));
 
         SpringApplication.run(JStore.class, args);
     }

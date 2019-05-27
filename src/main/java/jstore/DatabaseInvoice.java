@@ -59,7 +59,9 @@ public class DatabaseInvoice
         ArrayList<Invoice> tempInvoiceList = new ArrayList<Invoice>();
         for (Invoice invoicePtr : INVOICE_DATABASE)
         {
-            if (invoicePtr.getIsActive() == true)
+            if (invoicePtr.getIsActive() == true &&
+                    invoicePtr.getCustomer().equals(customer)
+            )
             {
                 tempInvoiceList.add(invoicePtr);
             }
