@@ -71,10 +71,7 @@ public class DatabaseItem
                 itemDB3.add(item);
             }
         }
-        if (itemDB3 != null){
-            return itemDB3;
-        }
-        return null;
+        return itemDB3;
     }
 
     public static ArrayList<Item> getItemFromCategory(ItemCategory category)
@@ -87,11 +84,7 @@ public class DatabaseItem
                 itemDB4.add(item);
             }
         }
-        if (itemDB4 != null)
-        {
-            return itemDB4;
-        }
-        return null;
+        return itemDB4;
     }
     
     public static ArrayList<Item> getItemFromStatus(ItemStatus status)
@@ -104,11 +97,7 @@ public class DatabaseItem
                 bar.add(item);
             }
         }
-        if (bar != null)
-        {
-            return bar;
-        }
-        return null;
+        return bar;
     }
 
     public static boolean removeItem(int id) throws ItemNotFoundException

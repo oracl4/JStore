@@ -23,50 +23,50 @@ public class JStore{
     public static void main(String[] args)
     {
         Location lokasi1 = new Location("DKI Jakarta", "Red Zone", "Jakarta Selatan");
-
+        Location lokasi2 = new Location("DKI Jakarta", "Blue Zone", "Jakarta Selatan");
+        Location lokasi3 = new Location("DKI Jakarta", "Yellow Zone", "Jakarta Selatan");
         try {
-            //Create 3 Supplier
-            DatabaseSupplier.addSupplier(new Supplier("Mahdi1", "it1.mahdi.yusuf@gmail.com", "081310275391", lokasi1));
+            //Create 1 Supplier
+            DatabaseSupplier.addSupplier(new Supplier("Supplier Rena", "it1.mahdi.yusuf@gmail.com", "081310275391", lokasi1));
+            DatabaseSupplier.addSupplier(new Supplier("Supplier Kane", "it2.mahdi.yusuf@gmail.com", "081310275392", lokasi2));
+            DatabaseSupplier.addSupplier(new Supplier("Supplier Shio", "it3.mahdi.yusuf@gmail.com", "081310275393", lokasi3));
         } catch (SupplierAlreadyExistsException e) {
-            e.getExMessage();
+            System.out.println(e.getExMessage());
         }
 
         try {
+            //Create 3 Item
             DatabaseItem.addItem(new Item("Mikon 8051", 1501, ItemCategory.Electronics, ItemStatus.New, DatabaseSupplier.getSupplier(1)));
             DatabaseItem.addItem(new Item("Mikon 8052", 1502, ItemCategory.Electronics, ItemStatus.New, DatabaseSupplier.getSupplier(1)));
-            DatabaseItem.addItem(new Item("Mikon 8053", 1503, ItemCategory.Electronics, ItemStatus.New, DatabaseSupplier.getSupplier(1)));
+            DatabaseItem.addItem(new Item("Mikon 8053", 1503, ItemCategory.Electronics, ItemStatus.New, DatabaseSupplier.getSupplier(2)));
+            DatabaseItem.addItem(new Item("Mikon 8054", 1504, ItemCategory.Electronics, ItemStatus.New, DatabaseSupplier.getSupplier(2)));
+            DatabaseItem.addItem(new Item("Mikon 8055", 1505, ItemCategory.Electronics, ItemStatus.New, DatabaseSupplier.getSupplier(3)));
+            DatabaseItem.addItem(new Item("Mikon 8056", 1506, ItemCategory.Electronics, ItemStatus.New, DatabaseSupplier.getSupplier(3)));
         } catch (ItemAlreadyExistsException e) {
-            e.getExMessage();
+            System.out.println(e.getExMessage());
         }
 
-        try {
-            DatabaseCustomer.addCustomer(new Customer("Mahdi","1","oracl4","4", 1998, 07, 05));
-        } catch (CustomerAlreadyExistsException e) {
-            e.getExMessage();
-        }
+//        DatabaseCustomerPostgre.insertCustomer("Mahdi","js.mahdi@gmail.com","oracl4","4ltius", 1998, 07, 05);
 
-        ArrayList<Integer> arrayListItem = new ArrayList<Integer>();
+//        ArrayList<Integer> itemTemp1 = new ArrayList<>();
+//        itemTemp1.add(1);
+//        ArrayList<Integer> itemTemp2 = new ArrayList<>();
+//        itemTemp2.add(2);
+//        ArrayList<Integer> itemTemp3 = new ArrayList<>();
+//        itemTemp3.add(3);
+//        ArrayList<Integer> itemTemp4 = new ArrayList<>();
+//        itemTemp4.add(4);
+//
+//        Transaction.sellItemUnpaid(itemTemp1, DatabaseCustomerPostgre.getCustomer(1));
+//        Transaction.sellItemUnpaid(itemTemp2, DatabaseCustomerPostgre.getCustomer(1));
+//        Transaction.sellItemUnpaid(itemTemp3, DatabaseCustomerPostgre.getCustomer(1));
+//        Transaction.sellItemUnpaid(itemTemp4, DatabaseCustomerPostgre.getCustomer(1));
 
-        arrayListItem.add(1);
-        arrayListItem.add(2);
-
-        try {
-            DatabaseInvoice.addInvoice(new Sell_Installment(arrayListItem, 13, DatabaseCustomer.getCustomer(1)));
-        } catch (InvoiceAlreadyExistsException e) {
-            e.getExMessage();
-        }
-
-        try {
-            for (Invoice invoicePtr : DatabaseInvoice.getActiveOrder(DatabaseCustomer.getCustomer(1)))
-            {
-                System.out.println(invoicePtr);
-            }
-        } catch (CustomerDoesntHaveActiveException e) {
-            e.getExMessage();
-        }
-
-        System.out.println(DatabaseInvoice.getInvoice(1));
-
+//        try {
+//            DatabaseCustomer.addCustomer(new Customer("Mahdi","1","oracl4","2", 1998, 07, 05));
+//        } catch (CustomerAlreadyExistsException e) {
+//            System.out.println(e.getExMessage());
+//        }
         SpringApplication.run(JStore.class, args);
     }
 

@@ -12,39 +12,38 @@
  */
 //Library
 package jstore;
-import javax.xml.crypto.Data;
-import java.text.SimpleDateFormat;
+
 import java.util.*;
+import java.text.SimpleDateFormat;
 import java.util.regex.*;
 
 public class Customer
 {
-    // instance variables - replace the example below with your own
-    private int id;
     private String name;
     private String email;
     private String username;
     private String password;
+    private int id;
     private Calendar birthDate;
 
-    public Customer(String name,String email,String username,String password,Calendar birthDate)
+    public Customer(int id, String name, String email, String username, String password, Calendar birthDate)
     {
         this.name=name;
         this.email=email;
         this.username=username;
         this.password=password;
-        id=DatabaseCustomer.getLastCustomerID()+1;
+        this.id = id;
         this.birthDate=birthDate;
-        this.birthDate.add(Calendar.MONTH, -1);
+        this.birthDate.add(Calendar.MONTH,-1);
     }
 
-    public Customer(String name,String email,String username,String password,int year,int month,int dayOfMonth)
+    public Customer(int id, String name, String email, String username, String password, int year, int month, int dayOfMonth)
     {
         this.name=name;
         this.email=email;
         this.username=username;
         this.password=password;
-        id=DatabaseCustomer.getLastCustomerID()+1;
+        this.id = id;
         this.birthDate= new GregorianCalendar(year,month-1,dayOfMonth);
     }
 

@@ -33,7 +33,9 @@ public class DatabaseInvoice
     {
         for (Invoice invoicePtr : INVOICE_DATABASE )
         {
-            if(invoicePtr.getItem().equals(invoice.getItem()))
+            if(invoicePtr.getItem().equals(invoice.getItem()) &&
+                invoicePtr.getCustomer().getID() == invoice.getCustomer().getID() &&
+                    invoicePtr.getIsActive())
             {
                 throw new InvoiceAlreadyExistsException(invoice);
             }
@@ -59,18 +61,29 @@ public class DatabaseInvoice
         ArrayList<Invoice> tempInvoiceList = new ArrayList<Invoice>();
         for (Invoice invoicePtr : INVOICE_DATABASE)
         {
-            if (invoicePtr.getIsActive() == true &&
-                    invoicePtr.getCustomer().equals(customer)
+            if (invoicePtr.getIsActive() &&
+                    invoicePtr.getCustomer().getID() == customer.getID()
             )
             {
                 tempInvoiceList.add(invoicePtr);
             }
         }
-        if (tempInvoiceList != null)
+        return tempInvoiceList;
+    }
+
+    public static ArrayList<Invoice> getInactiveOrder(Customer customer)
+    {
+        ArrayList<Invoice> tempInvoiceList = new ArrayList<Invoice>();
+        for (Invoice invoicePtr : INVOICE_DATABASE)
         {
-            return tempInvoiceList;
+            if (!invoicePtr.getIsActive() &&
+                    invoicePtr.getCustomer().getID() == customer.getID()
+            )
+            {
+                tempInvoiceList.add(invoicePtr);
+            }
         }
-        throw new CustomerDoesntHaveActiveException(customer);
+        return tempInvoiceList;
     }
 
     public static boolean removeInvoice(int id) throws InvoiceNotFoundException
@@ -79,7 +92,7 @@ public class DatabaseInvoice
         {
             if(invoice.getId() == id)
             {
-                if (invoice.getIsActive() == true)
+                if (invoice.getIsActive())
                 {
                     invoice.setIsActive(false);
                 }
