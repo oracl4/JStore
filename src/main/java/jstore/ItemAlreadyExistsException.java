@@ -1,31 +1,40 @@
 /**
  * <h1>ItemAlreadyExistsException.java</h1>
  * <p>
- * Class Description
- * Class Description
+ * Item Already Exists Exception
  * </p>
  *
- *
- * @author   Mahdi Yusuf
- * @version  7.0
- * @since    2019/24/04
+ * @author Mahdi Yusuf
+ * @version 13.0
+ * @since 2019/31/05
  */
 package jstore;
 
-public class ItemAlreadyExistsException extends Exception{
+/**
+ * The type Item already exists exception.
+ */
+public class ItemAlreadyExistsException extends Exception {
     private Item item_error;
 
-    public ItemAlreadyExistsException(Item item_input)
-    {
+    /**
+     * Instantiates a new Item already exists exception.
+     *
+     * @param item_input the item input
+     */
+    public ItemAlreadyExistsException(Item item_input) {
         super("Item Name : ");
-        this.item_error=item_input;
+        this.item_error = item_input;
     }
 
-    public String getExMessage()
-    {
+    /**
+     * Gets ex message.
+     *
+     * @return the ex message
+     */
+    public String getExMessage() {
         return super.getMessage() + item_error.getName()
-                + " , Category : "+ item_error.getCategory()
-                + " , Status : "+ item_error.getStatus()
+                + " , Category : " + item_error.getCategory()
+                + " , Status : " + item_error.getStatus()
                 + " From : " + item_error.getSupplier().getName()
                 + "already exists.";
     }

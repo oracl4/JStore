@@ -1,29 +1,37 @@
 /**
  * <h1>ItemNotFoundException.java</h1>
  * <p>
- * Class Description
- * Class Description
+ * Item Not Found Exception
  * </p>
  *
- *
- * @author   Mahdi Yusuf
- * @version  7.0
- * @since    2019/24/04
+ * @author Mahdi Yusuf
+ * @version 13.0
+ * @since 2019/31/05
  */
 package jstore;
 
-public class ItemNotFoundException extends Exception
-{
+/**
+ * The type Item not found exception.
+ */
+public class ItemNotFoundException extends Exception {
     private int item_error;
 
-    public ItemNotFoundException(int item_input)
-    {
+    /**
+     * Instantiates a new Item not found exception.
+     *
+     * @param item_input the item input
+     */
+    public ItemNotFoundException(int item_input) {
         super("Item ID : ");
-        this.item_error=item_input;
+        this.item_error = item_input;
     }
 
-    public String getExMessage()
-    {
+    /**
+     * Gets ex message.
+     *
+     * @return the ex message
+     */
+    public String getExMessage() {
         return super.getMessage() + item_error + " not found.";
     }
 }

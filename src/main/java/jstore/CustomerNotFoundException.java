@@ -1,29 +1,37 @@
 /**
  * <h1>CustomerNotFoundException.java</h1>
  * <p>
- * Class Description
- * Class Description
+ * Customer Not Found Exception
  * </p>
  *
- *
- * @author   Mahdi Yusuf
- * @version  7.0
- * @since    2019/24/04
+ * @author Mahdi Yusuf
+ * @version 13.0
+ * @since 2019/31/05
  */
 package jstore;
 
-public class CustomerNotFoundException extends Exception
-{
+/**
+ * The type Customer not found exception.
+ */
+public class CustomerNotFoundException extends Exception {
     private int customer_error;
 
-    public CustomerNotFoundException(int customer_input)
-    {
+    /**
+     * Instantiates a new Customer not found exception.
+     *
+     * @param customer_input the customer input
+     */
+    public CustomerNotFoundException(int customer_input) {
         super("Customer ID : ");
         this.customer_error = customer_input;
     }
 
-    public String getExMessage()
-    {
+    /**
+     * Gets ex message.
+     *
+     * @return the ex message
+     */
+    public String getExMessage() {
         return super.getMessage() + customer_error + " not found.";
     }
 }

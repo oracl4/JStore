@@ -1,29 +1,37 @@
 /**
  * <h1>SupplierAlreadyExistsException.java</h1>
  * <p>
- * Class Description
- * Class Description
+ * Supplier Already Exists Exception
  * </p>
  *
- *
- * @author   Mahdi Yusuf
- * @version  7.0
- * @since    2019/24/04
+ * @author Mahdi Yusuf
+ * @version 13.0
+ * @since 2019/31/05
  */
 package jstore;
 
-public class SupplierAlreadyExistsException extends Exception
-{
+/**
+ * The type Supplier already exists exception.
+ */
+public class SupplierAlreadyExistsException extends Exception {
     private Supplier supplier_error;
 
-    public SupplierAlreadyExistsException(Supplier supplier_input)
-    {
+    /**
+     * Instantiates a new Supplier already exists exception.
+     *
+     * @param supplier_input the supplier input
+     */
+    public SupplierAlreadyExistsException(Supplier supplier_input) {
         super("Supplier Email: ");
         supplier_error = supplier_input;
     }
 
-    public String getExMessage()
-    {
+    /**
+     * Gets ex message.
+     *
+     * @return the ex message
+     */
+    public String getExMessage() {
         return super.getMessage() + supplier_error.getEmail()
                 + ", or phoneNumber: " + supplier_error.getPhoneNumber()
                 + " already exists.";

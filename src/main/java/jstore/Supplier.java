@@ -1,18 +1,19 @@
 /**
  * <h1>Supplier.java</h1>
  * <p>
- * Class Description
- * Class Description
+ * Supplier Java Class
  * </p>
  *
- *
- * @author   Mahdi Yusuf
- * @version  7.0
- * @since    2019/24/04
+ * @author Mahdi Yusuf
+ * @version 13.0
+ * @since 2019/31/05
  */
 package jstore;
 
-public class Supplier{
+/**
+ * The type Supplier.
+ */
+public class Supplier {
 
     private int id;
     private String name;
@@ -20,57 +21,113 @@ public class Supplier{
     private String phoneNumber;
     private Location location;
 
-    public Supplier(String name, String email, String phoneNumber, Location location)
-    {
-        this.id=DatabaseSupplier.getLastSupplierID()+1;
-        this.name=name;
-        this.email=email;
-        this.phoneNumber=phoneNumber;
-        this.location=location;
+    /**
+     * Instantiates a new Supplier.
+     *
+     * @param name        the name
+     * @param email       the email
+     * @param phoneNumber the phone number
+     * @param location    the location
+     */
+    public Supplier(String name, String email, String phoneNumber, Location location) {
+        this.id = DatabaseSupplier.getLastSupplierID() + 1;
+        this.name = name;
+        this.email = email;
+        this.phoneNumber = phoneNumber;
+        this.location = location;
     }
-    
-    public int getId(){
+
+    /**
+     * Gets id.
+     *
+     * @return the id
+     */
+    public int getId() {
         return id;
     }
-    
-    public String getName(){
+
+    /**
+     * Gets name.
+     *
+     * @return the name
+     */
+    public String getName() {
         return name;
     }
-    
-    public String getEmail(){
+
+    /**
+     * Gets email.
+     *
+     * @return the email
+     */
+    public String getEmail() {
         return email;
     }
-    
-    public String getPhoneNumber(){
+
+    /**
+     * Gets phone number.
+     *
+     * @return the phone number
+     */
+    public String getPhoneNumber() {
         return phoneNumber;
     }
-    
-    public Location getLocation(){
+
+    /**
+     * Gets location.
+     *
+     * @return the location
+     */
+    public Location getLocation() {
         return location;
     }
-    
-    public void setId(int id){
-        this.id=id;
-    }
-    
-    public void setName(String name){
-        this.name=name;
+
+    /**
+     * Sets id.
+     *
+     * @param id the id
+     */
+    public void setId(int id) {
+        this.id = id;
     }
 
-    public void setEmail(String email){
-        this.email=email;
+    /**
+     * Sets name.
+     *
+     * @param name the name
+     */
+    public void setName(String name) {
+        this.name = name;
     }
 
-    public void setPhoneNumber(String phoneNumber){
-        this.phoneNumber=phoneNumber;
+    /**
+     * Sets email.
+     *
+     * @param email the email
+     */
+    public void setEmail(String email) {
+        this.email = email;
     }
 
-    public void setLocation(Location location){
-        this.location=location;
+    /**
+     * Sets phone number.
+     *
+     * @param phoneNumber the phone number
+     */
+    public void setPhoneNumber(String phoneNumber) {
+        this.phoneNumber = phoneNumber;
     }
 
-    public String toString()
-    {
+    /**
+     * Sets location.
+     *
+     * @param location the location
+     */
+    public void setLocation(Location location) {
+        this.location = location;
+    }
+
+    public String toString() {
         return "= Location ===============================" +
                 "\nName      : " + name +
                 "\nEmail     : " + email +

@@ -1,28 +1,42 @@
 /**
  * <h1>InvoiceStatus.java</h1>
  * <p>
- * Class Description
- * Class Description
+ * Invoice Status Enum
  * </p>
  *
- *
- * @author   Mahdi Yusuf
- * @version  7.0
- * @since    2019/24/04
+ * @author Mahdi Yusuf
+ * @version 13.0
+ * @since 2019/31/05
  */
 package jstore;
 
-public enum InvoiceStatus
-{
-    Paid("Paid"), Unpaid("Unpaid"), Installment("Installment");
+/**
+ * The enum Invoice status.
+ */
+public enum InvoiceStatus {
+    /**
+     * Paid invoice status.
+     */
+    Paid("Paid"),
+    /**
+     * Unpaid invoice status.
+     */
+    Unpaid("Unpaid"),
+    /**
+     * Installment invoice status.
+     */
+    Installment("Installment");
 
+    /**
+     * The Status.
+     */
     String status;
-    
-    InvoiceStatus(String status){
+
+    InvoiceStatus(String status) {
         this.status = status;
     }
-    
-    public String toString(){
+
+    public String toString() {
         return status;
     }
 }

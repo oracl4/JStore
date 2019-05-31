@@ -1,28 +1,38 @@
 /**
  * <h1>InvoiceType.java</h1>
  * <p>
- * Class Description
- * Class Description
+ * Invoice Type Enum
  * </p>
  *
- *
- * @author   Mahdi Yusuf
- * @version  7.0
- * @since    2019/24/04
+ * @author Mahdi Yusuf
+ * @version 13.0
+ * @since 2019/31/05
  */
 package jstore;
 
-public enum InvoiceType
-{
-    Buy("Buy"), Sell("Sell");
+/**
+ * The enum Invoice type.
+ */
+public enum InvoiceType {
+    /**
+     * Buy invoice type.
+     */
+    Buy("Buy"),
+    /**
+     * Sell invoice type.
+     */
+    Sell("Sell");
 
+    /**
+     * The Type.
+     */
     String type;
-    
-    InvoiceType(String type){
-    	this.type = type;
+
+    InvoiceType(String type) {
+        this.type = type;
     }
-    
-    public String toString(){
-    	return type;
+
+    public String toString() {
+        return type;
     }
 }

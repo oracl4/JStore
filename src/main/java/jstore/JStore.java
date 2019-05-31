@@ -1,27 +1,30 @@
 /**
  * <h1>JStore.java</h1>
  * <p>
- * Class Description
- * Class Description
+ * JStore main java class that have the main method that will be run
  * </p>
  *
- *
- * @author   Mahdi Yusuf
- * @version  7.0
- * @since    2019/24/04
+ * @author Mahdi Yusuf
+ * @version 13.0
+ * @since 2019/31/05
  */
 package jstore;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
-import java.util.ArrayList;
-
+/**
+ * The type J store.
+ */
 @SpringBootApplication
-public class JStore{
+public class JStore {
 
-    public static void main(String[] args)
-    {
+    /**
+     * The entry point of application.
+     *
+     * @param args the input arguments
+     */
+    public static void main(String[] args) {
         Location lokasi1 = new Location("DKI Jakarta", "Red Zone", "Jakarta Selatan");
         Location lokasi2 = new Location("DKI Jakarta", "Blue Zone", "Jakarta Selatan");
         Location lokasi3 = new Location("DKI Jakarta", "Yellow Zone", "Jakarta Selatan");
@@ -70,7 +73,9 @@ public class JStore{
         SpringApplication.run(JStore.class, args);
     }
 
-    public JStore()
-    {
+    /**
+     * Instantiates a new J store.
+     */
+    public JStore() {
     }
 }

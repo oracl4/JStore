@@ -1,28 +1,46 @@
 /**
  * <h1>ItemStatus.java</h1>
  * <p>
- * Class Description
- * Class Description
+ * Item Status Enum
  * </p>
  *
- *
- * @author   Mahdi Yusuf
- * @version  7.0
- * @since    2019/24/04
+ * @author Mahdi Yusuf
+ * @version 13.0
+ * @since 2019/31/05
  */
 package jstore;
 
-public enum ItemStatus
-{
-    New("New"), Second("Second"), Refurbished("Refurbished"), Sold("Sold");
+/**
+ * The enum Item status.
+ */
+public enum ItemStatus {
+    /**
+     * New item status.
+     */
+    New("New"),
+    /**
+     * Second item status.
+     */
+    Second("Second"),
+    /**
+     * Refurbished item status.
+     */
+    Refurbished("Refurbished"),
+    /**
+     * Sold item status.
+     */
+    Sold("Sold");
 
+    /**
+     * The Status.
+     */
     String status;
 
-    ItemStatus(String status){
+    ItemStatus(String status) {
         this.status = status;
     }
-    
-    public String toString(){
+
+    public String toString() {
         return status;
     }
 }

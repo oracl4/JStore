@@ -1,29 +1,37 @@
 /**
  * <h1>SupplierNotFoundException.java</h1>
  * <p>
- * Class Description
- * Class Description
+ * Supplier Not Found Exception
  * </p>
  *
- *
- * @author   Mahdi Yusuf
- * @version  7.0
- * @since    2019/24/04
+ * @author Mahdi Yusuf
+ * @version 13.0
+ * @since 2019/31/05
  */
 package jstore;
 
-public class SupplierNotFoundException extends Exception
-{
+/**
+ * The type Supplier not found exception.
+ */
+public class SupplierNotFoundException extends Exception {
     private int supplier_error;
 
-    public SupplierNotFoundException(int supplier_error)
-    {
+    /**
+     * Instantiates a new Supplier not found exception.
+     *
+     * @param supplier_error the supplier error
+     */
+    public SupplierNotFoundException(int supplier_error) {
         super("Supplier ID : ");
         this.supplier_error = supplier_error;
     }
 
-    public String getExMessage()
-    {
+    /**
+     * Gets ex message.
+     *
+     * @return the ex message
+     */
+    public String getExMessage() {
         return super.getMessage() + supplier_error + " not found.";
     }
 }

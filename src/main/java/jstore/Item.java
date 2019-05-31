@@ -1,19 +1,19 @@
 /**
  * <h1>Item.java</h1>
  * <p>
- * Class Description
- * Class Description
+ * Item Java Class
  * </p>
  *
- *
- * @author   Mahdi Yusuf
- * @version  7.0
- * @since    2019/24/04
+ * @author Mahdi Yusuf
+ * @version 13.0
+ * @since 2019/31/05
  */
 package jstore;
 
-public class Item
-{
+/**
+ * The type Item.
+ */
+public class Item {
     private int id;
     private String name;
     private int price;
@@ -21,80 +21,135 @@ public class Item
     private ItemStatus status;
     private Supplier supplier;
 
-    public Item(String name, int price, ItemCategory category, ItemStatus status, Supplier supplier)
-    {
-        this.id=DatabaseItem.getLastItemID()+1;
-        this.name=name;
-        this.price=price;
-        this.category=category;
-        this.status=status;
-        this.supplier=supplier;
+    /**
+     * Instantiates a new Item.
+     *
+     * @param name     the name
+     * @param price    the price
+     * @param category the category
+     * @param status   the status
+     * @param supplier the supplier
+     */
+    public Item(String name, int price, ItemCategory category, ItemStatus status, Supplier supplier) {
+        this.id = DatabaseItem.getLastItemID() + 1;
+        this.name = name;
+        this.price = price;
+        this.category = category;
+        this.status = status;
+        this.supplier = supplier;
     }
 
-    public int getId()
-    {
+    /**
+     * Gets id.
+     *
+     * @return the id
+     */
+    public int getId() {
         return id;
     }
-    
-    public String getName()
-    {
+
+    /**
+     * Gets name.
+     *
+     * @return the name
+     */
+    public String getName() {
         return name;
     }
 
-    public int getPrice()
-    {
+    /**
+     * Gets price.
+     *
+     * @return the price
+     */
+    public int getPrice() {
         return price;
     }
-    
-    public ItemCategory getCategory()
-    {
+
+    /**
+     * Gets category.
+     *
+     * @return the category
+     */
+    public ItemCategory getCategory() {
         return category;
     }
 
-    public ItemStatus getStatus()
-    {
+    /**
+     * Gets status.
+     *
+     * @return the status
+     */
+    public ItemStatus getStatus() {
         return status;
     }
 
-    public Supplier getSupplier()
-    {
+    /**
+     * Gets supplier.
+     *
+     * @return the supplier
+     */
+    public Supplier getSupplier() {
         return supplier;
     }
-    
-    public void setId(int id)
-    {
-        this.id=id;
-    }
-    
-    public void setName(String name)
-    {
-        this.name=name;
+
+    /**
+     * Sets id.
+     *
+     * @param id the id
+     */
+    public void setId(int id) {
+        this.id = id;
     }
 
-    public void setPrice(int price)
-    {
-        this.price=price;
+    /**
+     * Sets name.
+     *
+     * @param name the name
+     */
+    public void setName(String name) {
+        this.name = name;
     }
 
-    public void setCategory(ItemCategory category)
-    {
-        this.category=category;
+    /**
+     * Sets price.
+     *
+     * @param price the price
+     */
+    public void setPrice(int price) {
+        this.price = price;
     }
 
-    public void setStatus(ItemStatus status)
-    {
-        this.status=status;
+    /**
+     * Sets category.
+     *
+     * @param category the category
+     */
+    public void setCategory(ItemCategory category) {
+        this.category = category;
     }
 
-    public void setSupplier(Supplier supplier)
-    {
-        this.supplier=supplier;
+    /**
+     * Sets status.
+     *
+     * @param status the status
+     */
+    public void setStatus(ItemStatus status) {
+        this.status = status;
     }
 
-    public String toString()
-    {
+    /**
+     * Sets supplier.
+     *
+     * @param supplier the supplier
+     */
+    public void setSupplier(Supplier supplier) {
+        this.supplier = supplier;
+    }
+
+    public String toString() {
         return "= Item ===================================" +
-                "\nItem ID       : " +  getId() +
+                "\nItem ID       : " + getId() +
                 "\nItem Name     : " + getName() +
                 "\nItem Price    : " + getPrice() +
                 "\nItem Category : " + getCategory() +

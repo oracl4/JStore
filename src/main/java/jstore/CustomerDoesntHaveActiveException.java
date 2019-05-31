@@ -1,29 +1,37 @@
 /**
  * <h1>CustomerDoesntHaveActiveException.java</h1>
  * <p>
- * Class Description
- * Class Description
+ * Customer Doesnt Have Active Invoice Exception
  * </p>
  *
- *
- * @author   Mahdi Yusuf
- * @version  7.0
- * @since    2019/24/04
+ * @author Mahdi Yusuf
+ * @version 13.0
+ * @since 2019/31/05
  */
 package jstore;
 
-public class CustomerDoesntHaveActiveException extends Exception
-{
+/**
+ * The type Customer doesnt have active exception.
+ */
+public class CustomerDoesntHaveActiveException extends Exception {
     private Customer customer_error;
 
-    public CustomerDoesntHaveActiveException(Customer customer_input)
-    {
+    /**
+     * Instantiates a new Customer doesnt have active exception.
+     *
+     * @param customer_input the customer input
+     */
+    public CustomerDoesntHaveActiveException(Customer customer_input) {
         super("Customer : ");
-        this.customer_error=customer_input;
+        this.customer_error = customer_input;
     }
 
-    public String getExMessage()
-    {
+    /**
+     * Gets ex message.
+     *
+     * @return the ex message
+     */
+    public String getExMessage() {
         return super.getMessage() + customer_error + "\ndoesnt have active invoice.";
     }
 }

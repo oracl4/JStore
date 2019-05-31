@@ -1,44 +1,59 @@
 /**
  * <h1>DatabaseCustomer.java</h1>
  * <p>
- * Class Description
- * Class Description
+ * Static Java Customer Database
  * </p>
  *
- *
- * @author   Mahdi Yusuf
- * @version  7.0
- * @since    2019/24/04
+ * @author Mahdi Yusuf
+ * @version 13.0
+ * @since 2019/31/05
  */
 package jstore;
+
 import java.util.ArrayList;
 
-public class DatabaseCustomer
-{
+/**
+ * The type Database customer.
+ */
+public class DatabaseCustomer {
     private static ArrayList<Customer> CUSTOMER_DATABASE = new ArrayList<Customer>();
     private static int LAST_CUSTOMER_ID = 0;
-      
-    public DatabaseCustomer()
-    {
+
+    /**
+     * Instantiates a new Database customer.
+     */
+    public DatabaseCustomer() {
     }
-    
-    public static ArrayList<Customer> getCustomerDatabase()
-    {
+
+    /**
+     * Gets customer database.
+     *
+     * @return the customer database
+     */
+    public static ArrayList<Customer> getCustomerDatabase() {
         return CUSTOMER_DATABASE;
     }
 
-    public static int getLastCustomerID()
-    {
+    /**
+     * Gets last customer id.
+     *
+     * @return the last customer id
+     */
+    public static int getLastCustomerID() {
         return LAST_CUSTOMER_ID;
     }
 
-    public static boolean addCustomer(Customer customer) throws CustomerAlreadyExistsException
-    {
-        for (Customer temp : CUSTOMER_DATABASE )
-        {
-            if(((temp.getName().equals(customer.getName()))
-                    || (temp.getEmail().equals(customer.getEmail()))))
-            {
+    /**
+     * Add customer boolean.
+     *
+     * @param customer the customer
+     * @return the boolean
+     * @throws CustomerAlreadyExistsException the customer already exists exception
+     */
+    public static boolean addCustomer(Customer customer) throws CustomerAlreadyExistsException {
+        for (Customer temp : CUSTOMER_DATABASE) {
+            if (((temp.getName().equals(customer.getName()))
+                    || (temp.getEmail().equals(customer.getEmail())))) {
                 throw new CustomerAlreadyExistsException(customer);
             }
         }
@@ -47,24 +62,31 @@ public class DatabaseCustomer
         return true;
     }
 
-    public static Customer getCustomer(int id)
-    {
-        for (Customer customer : CUSTOMER_DATABASE)
-        {
-            if (customer.getID() == id )
-            {
+    /**
+     * Gets customer.
+     *
+     * @param id the id
+     * @return the customer
+     */
+    public static Customer getCustomer(int id) {
+        for (Customer customer : CUSTOMER_DATABASE) {
+            if (customer.getID() == id) {
                 return customer;
             }
         }
         return null;
     }
 
-    public static boolean removeCustomer(int id) throws CustomerNotFoundException
-    {
-        for (Customer customer : CUSTOMER_DATABASE)
-        {
-            if (customer.getID() == id)
-            {
+    /**
+     * Remove customer boolean.
+     *
+     * @param id the id
+     * @return the boolean
+     * @throws CustomerNotFoundException the customer not found exception
+     */
+    public static boolean removeCustomer(int id) throws CustomerNotFoundException {
+        for (Customer customer : CUSTOMER_DATABASE) {
+            if (customer.getID() == id) {
                 CUSTOMER_DATABASE.remove(customer);
                 return true;
             }
@@ -72,10 +94,16 @@ public class DatabaseCustomer
         throw new CustomerNotFoundException(id);
     }
 
-    public static Customer getCustomerLogin(String email, String password){
-        for (Customer customerPtr : CUSTOMER_DATABASE){
-            if (customerPtr.getEmail().equals(email) && customerPtr.getPassword().equals(password))
-            {
+    /**
+     * Gets customer login.
+     *
+     * @param email    the email
+     * @param password the password
+     * @return the customer login
+     */
+    public static Customer getCustomerLogin(String email, String password) {
+        for (Customer customerPtr : CUSTOMER_DATABASE) {
+            if (customerPtr.getEmail().equals(email) && customerPtr.getPassword().equals(password)) {
                 return customerPtr;
             }
         }

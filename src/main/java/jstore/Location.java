@@ -1,55 +1,92 @@
 /**
  * <h1>Location.java</h1>
  * <p>
- * Class Description
- * Class Description
+ * Location Java Class
  * </p>
  *
- *
- * @author   Mahdi Yusuf
- * @version  7.0
- * @since    2019/24/04
+ * @author Mahdi Yusuf
+ * @version 13.0
+ * @since 2019/31/05
  */
 package jstore;
 
-public class Location{
+/**
+ * The type Location.
+ */
+public class Location {
 
     private String province;
     private String description;
     private String city;
 
-    public Location(String province, String description, String city){
-        this.province=province;
-        this.city=city;
-        this.description=description;
-    }
-    
-    public String getProvince(){
-        return province;
-    }
-    
-    public String getDescription(){
-        return description;
-    }
-    
-    public String getCity(){
-        return city;
-    }
-    
-    public void setProvince(String province){
-        this.province=province;
-    }
-    
-    public void setDescription(String description){
-        this.description=description;
-    }
-    
-    public void setCity(String city){
-        this.city=city;
+    /**
+     * Instantiates a new Location.
+     *
+     * @param province    the province
+     * @param description the description
+     * @param city        the city
+     */
+    public Location(String province, String description, String city) {
+        this.province = province;
+        this.city = city;
+        this.description = description;
     }
 
-    public String toString()
-    {
+    /**
+     * Gets province.
+     *
+     * @return the province
+     */
+    public String getProvince() {
+        return province;
+    }
+
+    /**
+     * Gets description.
+     *
+     * @return the description
+     */
+    public String getDescription() {
+        return description;
+    }
+
+    /**
+     * Gets city.
+     *
+     * @return the city
+     */
+    public String getCity() {
+        return city;
+    }
+
+    /**
+     * Sets province.
+     *
+     * @param province the province
+     */
+    public void setProvince(String province) {
+        this.province = province;
+    }
+
+    /**
+     * Sets description.
+     *
+     * @param description the description
+     */
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    /**
+     * Sets city.
+     *
+     * @param city the city
+     */
+    public void setCity(String city) {
+        this.city = city;
+    }
+
+    public String toString() {
         return "= Location ===============================" +
                 "\nProvince      : " + province +
                 "\nCity          : " + city +

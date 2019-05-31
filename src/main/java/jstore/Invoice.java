@@ -1,101 +1,165 @@
 /**
  * <h1>Invoice.java</h1>
  * <p>
- * Class Description
- * Class Description
+ * Invoice Java Class
  * </p>
  *
- *
- * @author   Mahdi Yusuf
- * @version  7.0
- * @since    2019/24/04
+ * @author Mahdi Yusuf
+ * @version 13.0
+ * @since 2019/31/05
  */
 package jstore;
+
 import java.util.*;
 
-public abstract class Invoice
-{
+/**
+ * The type Invoice.
+ */
+public abstract class Invoice {
     private int id;
     private Calendar date;
     private boolean isActive;
     private Customer customer;
     private ArrayList<Integer> item = new ArrayList<Integer>();
 
-    //Testing
+    /**
+     * The Total price.
+     */
+//Testing
     public int totalPrice;
 
-    public Invoice(ArrayList<Integer> item)
-    {
-        this.item=item;
-        this.id=DatabaseInvoice.getLastInvoiceID()+1;
-        this.date=Calendar.getInstance();
+    /**
+     * Instantiates a new Invoice.
+     *
+     * @param item the item
+     */
+    public Invoice(ArrayList<Integer> item) {
+        this.item = item;
+        this.id = DatabaseInvoice.getLastInvoiceID() + 1;
+        this.date = Calendar.getInstance();
     }
-    
-    public int getId()
-    {
+
+    /**
+     * Gets id.
+     *
+     * @return the id
+     */
+    public int getId() {
         return id;
     }
-    
-    public ArrayList<Integer> getItem()
-    {
+
+    /**
+     * Gets item.
+     *
+     * @return the item
+     */
+    public ArrayList<Integer> getItem() {
         return item;
     }
-    
-    public Calendar getDate()
-    {
+
+    /**
+     * Gets date.
+     *
+     * @return the date
+     */
+    public Calendar getDate() {
         return date;
     }
-    
-    public int getTotalPrice()
-    {
+
+    /**
+     * Gets total price.
+     *
+     * @return the total price
+     */
+    public int getTotalPrice() {
         return totalPrice;
     }
 
-    public boolean getIsActive()
-    {
+    /**
+     * Gets is active.
+     *
+     * @return the is active
+     */
+    public boolean getIsActive() {
         return isActive;
     }
-    
-    public Customer getCustomer()
-    {
+
+    /**
+     * Gets customer.
+     *
+     * @return the customer
+     */
+    public Customer getCustomer() {
         return customer;
     }
-    
+
+    /**
+     * Gets invoice status.
+     *
+     * @return the invoice status
+     */
     public abstract InvoiceStatus getInvoiceStatus();
 
+    /**
+     * Gets invoice type.
+     *
+     * @return the invoice type
+     */
     public abstract InvoiceType getInvoiceType();
 
-    public void setId(int id)
-    {
-        this.id=id;
+    /**
+     * Sets id.
+     *
+     * @param id the id
+     */
+    public void setId(int id) {
+        this.id = id;
     }
 
-    public void setItem(ArrayList<Integer> item)
-    {
-        this.item=item;
-    }
-    
-    public void setDate(Calendar date)
-    {
-        this.date=date;
+    /**
+     * Sets item.
+     *
+     * @param item the item
+     */
+    public void setItem(ArrayList<Integer> item) {
+        this.item = item;
     }
 
-    public void setTotalPrice()
-    {
+    /**
+     * Sets date.
+     *
+     * @param date the date
+     */
+    public void setDate(Calendar date) {
+        this.date = date;
+    }
+
+    /**
+     * Sets total price.
+     */
+    public void setTotalPrice() {
         //Set Total Price
-        int tempTotalHarga=0;
-        for (int itemPtr : this.getItem())
-        {
-            tempTotalHarga=tempTotalHarga+DatabaseItem.getItemFromID(itemPtr).getPrice();
+        int tempTotalHarga = 0;
+        for (int itemPtr : this.getItem()) {
+            tempTotalHarga = tempTotalHarga + DatabaseItem.getItemFromID(itemPtr).getPrice();
         }
-        this.totalPrice=tempTotalHarga;
+        this.totalPrice = tempTotalHarga;
     }
 
-    public void setIsActive(boolean isActive)
-    {
-        this.isActive=isActive;
+    /**
+     * Sets is active.
+     *
+     * @param isActive the is active
+     */
+    public void setIsActive(boolean isActive) {
+        this.isActive = isActive;
     }
 
+    /**
+     * Sets invoice status.
+     *
+     * @param status the status
+     */
     public abstract void setInvoiceStatus(InvoiceStatus status);
 
     public abstract String toString();
